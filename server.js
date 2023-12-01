@@ -1,11 +1,14 @@
-const http = require('http')
+//ENTRY POINT
 
+const HTTP = require('http')
 const app = require('./app')
 
-const port = 8080 //NOT FINALLL
+const port = 8000
 
-const server = http.createServer()
+const server = HTTP.createServer(app)
 
 server.listen(port, ()=>{
-    console.log(`Listening to port ${port}`)
+    console.log(`server is listening in port ${port}`)
 })
+
+// console.log("../images/shoes/s-1640.jpg")

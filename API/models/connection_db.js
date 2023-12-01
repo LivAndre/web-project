@@ -1,5 +1,5 @@
-
-
+//DEFINE DATABASE DETAILS
+let mysql = require("mysql")
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -7,6 +7,8 @@ const db = mysql.createConnection({
 })
 
 const connectDatabase = ()=>{
+
+  
     db.connect((error) =>{
         if(error){
             console.log("Error Connecting to database")

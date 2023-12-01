@@ -4,6 +4,8 @@ const prodstockRouter = express.Router()
 
 
 prodstockRouter.get('/view/all', prodstockController.viewAllProductStocks)
+prodstockRouter.get('/view/:id', prodstockController.viewByProductstockId)
+
 
 
 
