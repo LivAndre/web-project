@@ -4,6 +4,7 @@ const prodRouter = express.Router()
 
 
 prodRouter.get('/view/all', prodController.viewAllProducts)
+prodRouter.get('/view/newarrivals', prodController.viewNewArrivals)
 prodRouter.get('/view/nikeproducts', prodController.viewNikeProducts)
 prodRouter.get('/view/adidasproducts', prodController.viewAdidasProducts)
 prodRouter.get('/view/newbalanceproducts', prodController.viewNewBalanceProducts)

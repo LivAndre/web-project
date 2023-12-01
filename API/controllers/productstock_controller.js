@@ -29,7 +29,7 @@ const viewAllProductStocks = (req,res,next)=>{
 }
 
 const viewByProductstockId = (req,res,next) =>{
-    let id = req.params.id
+    const id = req.params.id
   
     if(id == null || id == ""){
         res.status(404).json({

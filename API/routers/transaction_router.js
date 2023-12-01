@@ -3,7 +3,7 @@ const transactionController = require('../controllers/transaction_controller')
 const transactionRouter = express.Router()
 
 
-transactionRouter.get('/view/all', transactionController.viewAllTransaction)
+transactionRouter.get('/view/transaction/:id', transactionController.viewTransactionById)
 
 
 

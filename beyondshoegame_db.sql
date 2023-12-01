@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 01, 2023 at 09:47 AM
--- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- Generation Time: Dec 01, 2023 at 01:23 PM
+-- Server version: 8.0.31
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `tbl_brand`;
 CREATE TABLE IF NOT EXISTS `tbl_brand` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
@@ -54,7 +54,7 @@ INSERT INTO `tbl_brand` (`id`, `name`) VALUES
 
 DROP TABLE IF EXISTS `tbl_category`;
 CREATE TABLE IF NOT EXISTS `tbl_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `type` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -76,11 +76,11 @@ INSERT INTO `tbl_category` (`id`, `type`) VALUES
 
 DROP TABLE IF EXISTS `tbl_product`;
 CREATE TABLE IF NOT EXISTS `tbl_product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `brand_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `brand_id` int NOT NULL,
+  `category_id` int NOT NULL,
   `name` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL,
+  `description` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `main_img` varchar(255) DEFAULT NULL,
   `left_img` varchar(255) DEFAULT NULL,
@@ -122,11 +122,11 @@ INSERT INTO `tbl_product` (`id`, `brand_id`, `category_id`, `name`, `description
 
 DROP TABLE IF EXISTS `tbl_productstock`;
 CREATE TABLE IF NOT EXISTS `tbl_productstock` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `size` varchar(100) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
+  `size` varchar(100) NOT NULL,
+  `quantity` int NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
@@ -167,12 +167,12 @@ INSERT INTO `tbl_productstock` (`id`, `product_id`, `size`, `quantity`, `price`)
 
 DROP TABLE IF EXISTS `tbl_transaction`;
 CREATE TABLE IF NOT EXISTS `tbl_transaction` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `productstock_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `reference_number` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `productstock_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `reference_number` varchar(255) NOT NULL,
   `date_of_purchase` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `price` int(11) NOT NULL,
+  `price` int NOT NULL,
   `mode_of_payment` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `productstock_id` (`productstock_id`),
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `tbl_transaction` (
 
 DROP TABLE IF EXISTS `tbl_user`;
 CREATE TABLE IF NOT EXISTS `tbl_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
