@@ -5,16 +5,29 @@ const prodRouter = express.Router()
 
 prodRouter.get('/view/all', prodController.viewAllProducts)
 prodRouter.get('/view/newarrivals', prodController.viewNewArrivals)
-prodRouter.get('/view/nikeproducts', prodController.viewNikeProducts)
-prodRouter.get('/view/adidasproducts', prodController.viewAdidasProducts)
-prodRouter.get('/view/newbalanceproducts', prodController.viewNewBalanceProducts)
-prodRouter.get('/view/vansproducts', prodController.viewVansProducts)
-prodRouter.get('/view/converseproducts', prodController.viewConverseProducts)
-prodRouter.get('/view/othersproducts', prodController.viewOthersProducts)
-prodRouter.get('/view/Sneakers',prodController.viewSneakerProducts)
-prodRouter.get('/view/Apparels', prodController.viewApparelProducts)
-prodRouter.get('/view/Essentials', prodController.viewEssentialProducts)
-prodRouter.get('/view/:prod_name', prodController.viewProductViaProductName)
+prodRouter.get('/view/newesttooldest', prodController.viewNewestToOldest)
+prodRouter.get('/view/oldesttonewest', prodController.viewOldestToNewest)
+
+prodRouter.get('/view/collections/nike-sneakers', prodController.viewNikeSneakers)
+prodRouter.get('/view/collections/adidas-sneakers', prodController.viewAdidasSneakers)
+prodRouter.get('/view/collections/newbalance-sneakers', prodController.viewNewBalanceSneakers)
+prodRouter.get('/view/collections/vans-sneakers', prodController.viewVansSneakers)
+prodRouter.get('/view/collections/converse-sneakers', prodController.viewConverseSneakers)
+prodRouter.get('/view/collections/others-sneakers', prodController.viewOthersSneakers)
+prodRouter.get('/view/collections/sizes', prodController.filterSneakerSizes)
+
+
+prodRouter.get('/view/collections/Sneakers',prodController.viewSneakerProducts)
+prodRouter.get('/view/collections/Apparels', prodController.viewApparelProducts)
+prodRouter.get('/view/collections/Essentials', prodController.viewEssentialProducts)
+
+prodRouter.get('/view/search/:prod_name', prodController.viewProductViaProductName)
 
 
 module.exports = prodRouter
+
+
+
+  
+
+  

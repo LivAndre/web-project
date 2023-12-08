@@ -26,7 +26,7 @@ const viewAllProducts = (req,res,next)=>{
             })
         }
     })
-
+ 
 }
 
 const viewNewArrivals = (req,res,next)=>{        
@@ -54,6 +54,59 @@ const viewNewArrivals = (req,res,next)=>{
     })
 
 }
+
+const viewNewestToOldest = (req,res,next)=>{        
+    let selectQuery = 'SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.name, description, created_at, main_img, left_img, right_img, top_img FROM tbl_product JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id JOIN tbl_category ON tbl_product.category_id = tbl_category.id ORDER BY created_at DESC'
+    database.db.query(selectQuery, (err,rows,result) =>{
+        if (err){
+            res.status(500).json({
+                successful : false,
+                message : err
+            })   
+        }
+        else if (rows.length <= 0){
+            res.status(400).json({
+                successful:false,
+                message: "No Products in the Database"
+            })
+        }
+        else{
+            res.status(200).json({
+                successful:true,
+                message: "Successfully Got All Products ",
+                data:rows
+            })
+        }
+    })
+
+}
+
+const viewOldestToNewest = (req,res,next)=>{        
+    let selectQuery = 'SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.name, description, created_at, main_img, left_img, right_img, top_img FROM tbl_product JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id JOIN tbl_category ON tbl_product.category_id = tbl_category.id ORDER BY created_at ASC'
+    database.db.query(selectQuery, (err,rows,result) =>{
+        if (err){
+            res.status(500).json({
+                successful : false,
+                message : err
+            })   
+        }
+        else if (rows.length <= 0){
+            res.status(400).json({
+                successful:false,
+                message: "No Products in the Database"
+            })
+        }
+        else{
+            res.status(200).json({
+                successful:true,
+                message: "Successfully Got All Products ",
+                data:rows
+            })
+        }
+    })
+
+}
+
 
 const viewSneakerProducts = (req,res,next)=>{
 
@@ -140,9 +193,9 @@ const viewEssentialProducts = (req,res,next)=>{
 }
 
 
-const viewNikeProducts = (req,res,next)=>{
+const viewNikeSneakers = (req,res,next)=>{
 
-    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Nike'`
+    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Nike' AND type = 'sneakers'`
 
     database.db.query(selectQuery,(err,rows,result) =>{
 
@@ -168,9 +221,9 @@ const viewNikeProducts = (req,res,next)=>{
     })
 }
 
-const viewAdidasProducts = (req,res,next)=>{
+const viewAdidasSneakers = (req,res,next)=>{
 
-    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Adidas'`
+    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Adidas' AND type = 'sneakers'`
 
     database.db.query(selectQuery,(err,rows,result) =>{
 
@@ -196,9 +249,9 @@ const viewAdidasProducts = (req,res,next)=>{
     })
 }
 
-const viewNewBalanceProducts = (req,res,next)=>{
+const viewNewBalanceSneakers = (req,res,next)=>{
 
-    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'New Balance'`
+    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'New Balance' AND type = 'sneakers'`
 
     database.db.query(selectQuery,(err,rows,result) =>{
 
@@ -224,9 +277,9 @@ const viewNewBalanceProducts = (req,res,next)=>{
     })
 }
 
-const viewVansProducts = (req,res,next)=>{
+const viewVansSneakers = (req,res,next)=>{
 
-    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Vans'`
+    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Vans' AND type = 'sneakers'`
 
     database.db.query(selectQuery,(err,rows,result) =>{
 
@@ -252,9 +305,9 @@ const viewVansProducts = (req,res,next)=>{
     })
 }
 
-const viewConverseProducts = (req,res,next)=>{
+const viewConverseSneakers = (req,res,next)=>{
 
-    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Converse'`
+    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Converse' AND type = 'sneakers'`
 
     database.db.query(selectQuery,(err,rows,result) =>{
 
@@ -280,9 +333,9 @@ const viewConverseProducts = (req,res,next)=>{
     })
 }
 
-const viewOthersProducts = (req,res,next)=>{
+const viewOthersSneakers = (req,res,next)=>{
 
-    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Others'`
+    let selectQuery = `Select tbl_brand.name AS brand_name, type, tbl_product.name, description, created_at FROM tbl_product JOIN tbl_category ON tbl_product.category_id = tbl_category.id JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id WHERE tbl_brand.name = 'Others' AND type = 'sneakers'`
 
     database.db.query(selectQuery,(err,rows,result) =>{
 
@@ -307,6 +360,7 @@ const viewOthersProducts = (req,res,next)=>{
         }
     })
 }
+
 const viewProductViaProductName = (req, res, next) => {
     let prodName = req.params.prod_name
   
@@ -344,19 +398,77 @@ const viewProductViaProductName = (req, res, next) => {
   }
 
 
+const filterSneakerSizes  = (req,res,next)=>{
+
+    let selectQuery = `
+    SELECT tbl_brand.name AS brand_name, type, p.name, description, created_at 
+    FROM tbl_product AS p
+    JOIN tbl_category ON p.category_id = tbl_category.id 
+    JOIN tbl_brand ON p.brand_id = tbl_brand.id 
+    JOIN tbl_productstock ON tbl_productstock.product_id = p.id
+    WHERE tbl_productstock.size = '4 us' OR tbl_productstock.size = '4.5 us' OR tbl_productstock.size = '5 us'
+    OR tbl_productstock.size = '5.5 us' OR tbl_productstock.size = '6 us' OR tbl_productstock.size = '6.5 us'
+    OR tbl_productstock.size = '7 us' OR tbl_productstock.size = '7.5 us'` // 4 - 7.5
+
+    // `
+    // SELECT tbl_brand.name AS brand_name, type, p.name, description, created_at 
+    // FROM tbl_product AS p
+    // JOIN tbl_category ON p.category_id = tbl_category.id 
+    // JOIN tbl_brand ON p.brand_id = tbl_brand.id 
+    // JOIN tbl_productstock ON tbl_productstock.product_id = p.id
+    // WHERE tbl_productstock.size = '8 us' OR tbl_productstock.size = '8.5 us' OR tbl_productstock.size = '9 us'
+    // OR tbl_productstock.size = '9.5 us' OR tbl_productstock.size = '10 us' OR tbl_productstock.size = '10.5 us'
+    // OR tbl_productstock.size = '11 us' OR tbl_productstock.size = '11.5 us'` // 8 - 11.5
+
+     // `
+    // SELECT tbl_brand.name AS brand_name, type, p.name, description, created_at 
+    // FROM tbl_product AS p
+    // JOIN tbl_category ON p.category_id = tbl_category.id 
+    // JOIN tbl_brand ON p.brand_id = tbl_brand.id 
+    // JOIN tbl_productstock ON tbl_productstock.product_id = p.id
+    // WHERE tbl_productstock.size = '12 us' OR tbl_productstock.size = '12.5 us' OR tbl_productstock.size = '13 us'
+    // OR tbl_productstock.size = '13.5 us' OR tbl_productstock.size = '14 us'` //12 - 14
+
+    database.db.query(selectQuery,(err,rows,result) =>{
+
+        if(err){
+            res.status(500).json({
+                successful:false,
+                message : err
+            })
+        }
+        else if (rows.length <= 0){
+            res.status(400).json({
+                successful:false,
+                message: "No Products Found in the Database"
+            })
+        }
+        else{
+            res.status(200).json({
+                successful:true,
+                message : "Successfuly got All Products",
+                data : rows
+            })
+        }
+    })
+}
+
 
 
 module.exports = {
     viewAllProducts,
     viewNewArrivals,
-    viewNikeProducts,
-    viewAdidasProducts,
-    viewNewBalanceProducts,
-    viewVansProducts,
-    viewConverseProducts,
-    viewOthersProducts,
+    viewNewestToOldest,
+    viewOldestToNewest,
+    viewNikeSneakers,
+    viewAdidasSneakers,
+    viewNewBalanceSneakers,
+    viewVansSneakers,
+    viewConverseSneakers,
+    viewOthersSneakers,
     viewSneakerProducts,
     viewApparelProducts,
     viewEssentialProducts,
-    viewProductViaProductName
+    viewProductViaProductName,
+    filterSneakerSizes
 }
