@@ -28,6 +28,46 @@ const viewAllCategory = (req,res,next)=>{
 
 }
 
+const viewCategoriesById = (req,res,next) =>{
+    const id = req.params.id
+  
+    if(id == null || id == ""){
+        res.status(404).json({
+            successful:false ,
+            message:"Category ID is missing"
+        })
+    }
+    else{
+      
+        let query = `SELECT * from tbl_category WHERE id = ${id}`
+  
+        database.db.query(query, (err,rows,result)=>{
+            if(err){
+                res.status(500).json({
+                    successful:false,
+                    message:err
+                })
+            }
+            else{
+                if(rows.length>0){
+                        res.status(200).json({
+                        successful:true,
+                         message:`successfully Founded Category ID: ${id} `,
+                         data:rows         
+                    })
+                }
+                else{
+                    res.status(400).json({
+                        successful:false ,
+                        message:"Category ID does not exist"
+                    }) 
+                }
+            }
+        })
+    }
+}
+
 module.exports = {
-    viewAllCategory
+    viewAllCategory,
+    viewCategoriesById
 }
