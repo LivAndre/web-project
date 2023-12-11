@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -335,162 +336,62 @@
               <div class="top-part">
                 <div class="left-side">
                   <div class="selected-products">Selected Products:</div>
-                  <div class="_85" id="total-product-count">85</div>
+                  <div class="_85" id="total-product-count"></div>
                 </div>
+                
                 <div class="paste-button">
-                  <button class="buttonz">High to Lowest &nbsp; ▼</button>                 
+                  <button class="buttonz">High to Lowest &nbsp; ▼</button>
                   <div class="dropdown-content">
+                    <a id="default" href="#">High to Lowest</a> 
                     <a id="top" href="#">Lowest to Highest</a>
                     <a id="middle" href="#">Newest</a>
                     <a id="bottom" href="#">Oldest</a>
                   </div>
                 </div>
+              
+                <script>
+                  $(document).ready(function() {
+                  $('#default').click(function() {
+                    var buttonText = $('.buttonz').text();
+                    var highToLowest = 'High to Lowest ▼';
+                    if (buttonText !== highToLowest) {
+                      $('.buttonz').text(highToLowest);
+                      getAllProducts('High to Lowest');
+                    } else {
+                      var currentText = $('.buttonz').text();
+                      var originalText = currentText.split(' ')[0];
+                      $('.buttonz').text(originalText + ' ▼');
+                      getAllProducts('High to Lowest');
+                    }
+                  });
+
+                  $('#top').click(function() {
+                    $('.buttonz').text('Lowest to Highest ▼');
+                    getAllProducts('Lowest to Highest');
+                  });
+
+                  $('#middle').click(function() {
+                    $('.buttonz').text('Newest ▼');
+                    getAllProducts('Newest');
+                  });
+
+                  $('#bottom').click(function() {
+                    $('.buttonz').text('Oldest ▼');
+                    getAllProducts('Oldest');
+                  });
+                });
+                </script>
                 
               </div>
+
               <div class="products" id="product-list">
-                <!-- <div class="row">
-                  <div class="product-card">
-                    <div class="top-section"></div>
-                    <div class="text-icon">
-                      <div class="info4">
-                        <div class="jordan-1-travis-scott">
-                          Jordan 1<br />Travis Scott
-                        </div>
-                        <div class="_65-000">₱65,000</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="j-1-ts-2" src="/frontend/img/j1ts 1.png" />
-                  </div>
-                  <div class="product-card">
-                    <div class="top-section"></div>
-                    <div class="text-icon">
-                      <div class="info4">
-                        <div class="adidas-samba-2023">Adidas Samba<br />2023</div>
-                        <div class="_6-000">₱6,000</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="samb-2" src="/frontend/img/samb 1.png" />
-                  </div>
-                  <div class="product-card">
-                    <div class="top-section"></div>
-                    <div class="text-icon">
-                      <div class="info4">
-                        <div class="adidas-yeezy-900-true-black">
-                          Adidas YEEZY<br />900 “True Black”
-                        </div>
-                        <div class="_7-500">₱7,500</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="untitled-design-2" src="/frontend/img/Untitled design 2.png" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="product-card">
-                    <div class="top-section2"></div>
-                    <div class="text-icon">
-                      <div class="info4">
-                        <div class="new-balance-550-s-adl">
-                          New Balance<br />550’s ADL
-                        </div>
-                        <div class="_10-500">₱10,500</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="_550-2" src="/frontend/img/550 1.png" />
-                  </div>
-                  <div class="product-card">
-                    <div class="top-section2"></div>
-                    <div class="text-icon">
-                      <div class="info4">
-                        <div class="jordan-4-2018-white-cement">
-                          Jordan 4 2018<br />White Cement
-                        </div>
-                        <div class="_9-000">₱9,000</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="j-4-2" src="/frontend/img/j4 1.png" />
-                  </div>
-                  <div class="product-card">
-                    <div class="top-section2"></div>
-                    <div class="text-icon">
-                      <div class="info4">
-                        <div class="adidas-yeezy-700-classic">
-                          Adidas YEEZY<br />700 “Classic”
-                        </div>
-                        <div class="_11-000">₱11,000</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="yeezy-2" src="/frontend/img/yeezy 2.png" />
-                  </div>
-                </div>
-                <div class="row2">
-                  <div class="product-card2">
-                    <div class="top-section2"></div>
-                    <div class="iphone-14-pro-1"></div>
-                    <div class="text-icon2">
-                      <div class="info4">
-                        <div class="nike-panda-vintages-low">
-                          Nike Panda <br />“Vintages” Low
-                        </div>
-                        <div class="_7-000">₱7,000</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="panda-2" src="/frontend/img/panda 1.png" />
-                  </div>
-                  <div class="product-card3">
-                    <div class="top-section">
-                      <div class="icon-32-px-like"></div>
-                    </div>
-                    <div class="iphone-14-pro-1"></div>
-                    <div class="text-icon2">
-                      <div class="info4">
-                        <div class="new-balance-2002-r-pocket-gray-m-2002-rvc">
-                          New Balance 2002R Pocket Gray M2002RVC
-                        </div>
-                        <div class="_12-000">₱12,000</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="_2002-r-3" src="/frontend/img/2002r 2.png" />
-                  </div>
-                  <div class="product-card4">
-                    <div class="top-section2"></div>
-                    <div class="text-icon3">
-                      <div class="info4">
-                        <div class="reebok-aght-198-true-few">
-                          Reebok AGHT198<br />“TrueFew”
-                        </div>
-                        <div class="_5-500">₱5,500</div>
-                      </div>
-                      <div class="button">
-                        <div class="label">Buy Now</div>
-                      </div>
-                    </div>
-                    <img class="add-a-heading-8-2" src="/frontend/img/reebok.png" />
-                  </div>
-                </div> -->
+                <script src="../js/api_client.js"></script>
+                <script src="../js/util.js"></script>
+                <script src="../js/product.js"></script>
+                <script>
+                  getAllProducts()
+                </script>
+               
               </div>
             </div>
             <div class="pagination">
@@ -648,11 +549,6 @@
       </div>
       
   
-      <script src="../js/api_client.js"></script>
-      <script src="../js/util.js"></script>
-      <script src="../js/product.js"></script>
-      <script>
-        getAllProducts()
-      </script>
+     
 </body>
 </html>

@@ -31,6 +31,26 @@ function initializeProdDetails(){
             document.getElementById("product-main-img-top").src = productTop
 
 
+    
+            const mainImg = document.getElementById("product-main-img") 
+            const mainImg2 = document.getElementById("product-main-img-top2")
+            const backImg = document.getElementById("product-main-img-back")
+            const topImg = document.getElementById("product-main-img-top")
+            
+
+            backImg.addEventListener("mouseover", () => {
+                mainImg.src = backImg.src;
+              });
+              
+            mainImg2.addEventListener("mouseover", () => {
+                mainImg.src = mainImg2.src;
+            });
+              
+            topImg.addEventListener("mouseover", () => {
+                mainImg.src = topImg.src;
+             });
+
+
         }
         else{
             console.log(response.message)

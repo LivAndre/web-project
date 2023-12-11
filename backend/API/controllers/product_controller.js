@@ -84,12 +84,18 @@ const viewAllProducts = (req,res,next)=>{
 
 const viewNewArrivals = (req,res,next)=>{        
     let selectQuery = `
-    SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.name, description, created_at, main_img, 
-    back_img, top_img 
-    FROM tbl_product 
+    SELECT tbl_brand.name AS brand_name, tbl_product.id, tbl_category.type, tbl_product.name, description, created_at, main_img, 
+    back_img, top_img,  min_price.min_price
+    FROM tbl_product
+    JOIN (
+        SELECT product_id, MIN(price) AS min_price
+        FROM tbl_productstock
+        GROUP BY product_id
+    ) AS min_price ON tbl_product.id = min_price.product_id
     JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
     JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
-    WHERE created_at >= DATE_SUB(NOW(), INTERVAL 1 WEEK)`
+    WHERE created_at >= DATE_SUB(NOW(), INTERVAL 1 WEEK)
+    `
     database.db.query(selectQuery, (err,rows,result) =>{
         if (err){
             res.status(500).json({
@@ -116,9 +122,14 @@ const viewNewArrivals = (req,res,next)=>{
 
 const viewNewestToOldest = (req,res,next)=>{        
     let selectQuery = `
-    SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.name, description, created_at, main_img, 
-    back_img, top_img 
+    SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.id, tbl_product.name, tbl_product.description, tbl_product.created_at, 
+    tbl_product.main_img, tbl_product.back_img, tbl_product.top_img , min_price.min_price
     FROM tbl_product 
+    JOIN (
+        SELECT product_id, MIN(price) AS min_price
+        FROM tbl_productstock
+        GROUP BY product_id
+    ) AS min_price ON tbl_product.id = min_price.product_id
     JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
     JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
     ORDER BY created_at DESC`
@@ -139,6 +150,7 @@ const viewNewestToOldest = (req,res,next)=>{
             res.status(200).json({
                 successful:true,
                 message: "Successfully Got All Products ",
+                count: rows.length,
                 data:rows
             })
         }
@@ -148,9 +160,14 @@ const viewNewestToOldest = (req,res,next)=>{
 
 const viewOldestToNewest = (req,res,next)=>{        
     let selectQuery = `
-    SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.name, description, created_at, 
-    main_img, back_img, top_img 
+    SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.id, tbl_product.name, tbl_product.description, tbl_product.created_at, 
+    tbl_product.main_img, tbl_product.back_img, tbl_product.top_img , min_price.min_price
     FROM tbl_product 
+    JOIN (
+        SELECT product_id, MIN(price) AS min_price
+        FROM tbl_productstock
+        GROUP BY product_id
+    ) AS min_price ON tbl_product.id = min_price.product_id
     JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
     JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
     ORDER BY created_at ASC`
@@ -171,6 +188,7 @@ const viewOldestToNewest = (req,res,next)=>{
             res.status(200).json({
                 successful:true,
                 message: "Successfully Got All Products ",
+                count: rows.length,
                 data:rows
             })
         }
@@ -209,6 +227,7 @@ const viewLowestToHighest = (req,res,next)=>{
             res.status(200).json({
                 successful:true,
                 message: "Successfully Got All Products ",
+                count: rows.length,
                 data:rows
             })
         }

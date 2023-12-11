@@ -1,24 +1,7 @@
-const getAllProducts = (sortType) => {
-    let url = '';
+const getNewArrivals = ()=>{
+    let url = `${getUrl("DEV_URL")}/products/view/newarrivals`
+
   
-    switch (sortType) {
-      case 'High to Lowest':
-        url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
-        break
-      case 'Lowest to Highest':
-        url = `${getUrl("DEV_URL")}/products/view/lowesttohighest`
-        break
-      case 'Newest':
-        url = `${getUrl("DEV_URL")}/products/view/newesttooldest`
-        break
-      case 'Oldest':
-        url = `${getUrl("DEV_URL")}/products/view/oldesttonewest`
-        break
-      default:
-        url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
-        break
-    }
-    
 
     let content = {
         "method": "GET",
@@ -29,8 +12,6 @@ const getAllProducts = (sortType) => {
     
     api_client(url, content, (response)=>{
         if (response.successful == true){
-            document.getElementById("total-product-count").innerHTML = response.count
-            
             populateAllProducts(response.data)
             
         }
@@ -40,7 +21,6 @@ const getAllProducts = (sortType) => {
     })
 }
 
-
 const populateAllProducts = (data)=>{
 
     
@@ -48,7 +28,7 @@ const populateAllProducts = (data)=>{
     let innerHTML = ""
 
     let count = 1
-    
+
     for (let i in data){
         let el = data[i]
 
@@ -85,7 +65,7 @@ const populateAllProducts = (data)=>{
         }
     }
 
-    document.getElementById("product-list").innerHTML = innerHTML
+    document.getElementById("home-product-list").innerHTML = innerHTML
 }
 
 const redirectToProdDetails = (id)=>{
