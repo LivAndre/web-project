@@ -132,6 +132,7 @@ const viewNewestToOldest = (req,res,next)=>{
     ) AS min_price ON tbl_product.id = min_price.product_id
     JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
     JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
+    WHERE tbl_category.type = "sneakers"
     ORDER BY created_at DESC`
     database.db.query(selectQuery, (err,rows,result) =>{
         if (err){
@@ -170,6 +171,8 @@ const viewOldestToNewest = (req,res,next)=>{
     ) AS min_price ON tbl_product.id = min_price.product_id
     JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
     JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
+    WHERE tbl_category.type = "sneakers"
+
     ORDER BY created_at ASC`
     database.db.query(selectQuery, (err,rows,result) =>{
         if (err){
@@ -208,6 +211,7 @@ const viewLowestToHighest = (req,res,next)=>{
     ) AS min_price ON p.id = min_price.product_id
     JOIN tbl_brand ON p.brand_id = tbl_brand.id 
     JOIN tbl_category ON p.category_id = tbl_category.id 
+    WHERE tbl_category.type = "sneakers"
     ORDER BY min_price.min_price ASC
     `
     database.db.query(selectQuery, (err,rows,result) =>{
@@ -247,6 +251,7 @@ const viewHighestToLowest = (req,res,next)=>{
     ) AS min_price ON p.id = min_price.product_id
     JOIN tbl_brand ON p.brand_id = tbl_brand.id 
     JOIN tbl_category ON p.category_id = tbl_category.id 
+    WHERE tbl_category.type = "sneakers"
     ORDER BY min_price.min_price DESC
     `
     database.db.query(selectQuery, (err,rows,result) =>{
@@ -273,6 +278,85 @@ const viewHighestToLowest = (req,res,next)=>{
     })
 
 }
+
+const viewapparels = (req,res,next)=>{        
+    let selectQuery = `
+    SELECT tbl_brand.name AS brand_name , tbl_category.type, p.id, p.name, p.description, p.created_at, 
+    p.main_img, p.back_img, p.top_img , min_price.min_price
+    FROM tbl_product AS p
+    JOIN (
+        SELECT product_id, MIN(price) AS min_price
+        FROM tbl_productstock
+        GROUP BY product_id
+    ) AS min_price ON p.id = min_price.product_id
+    JOIN tbl_brand ON p.brand_id = tbl_brand.id 
+    JOIN tbl_category ON p.category_id = tbl_category.id 
+    WHERE tbl_category.type = "apparels"
+    `
+    database.db.query(selectQuery, (err,rows,result) =>{
+        if (err){
+            res.status(500).json({
+                successful : false,
+                message : err
+            })   
+        }
+        else if (rows.length <= 0){
+            res.status(400).json({
+                successful:false,
+                message: "No Products in the Database"
+            })
+        }
+        else{
+            res.status(200).json({
+                successful:true,
+                message: "Successfully Got All Products ",
+                count: rows.length,
+                data:rows
+            })
+        }
+    })
+
+}
+
+const viewessentials = (req,res,next)=>{        
+    let selectQuery = `
+    SELECT tbl_brand.name AS brand_name , tbl_category.type, p.id, p.name, p.description, p.created_at, 
+    p.main_img, p.back_img, p.top_img , min_price.min_price
+    FROM tbl_product AS p
+    JOIN (
+        SELECT product_id, MIN(price) AS min_price
+        FROM tbl_productstock
+        GROUP BY product_id
+    ) AS min_price ON p.id = min_price.product_id
+    JOIN tbl_brand ON p.brand_id = tbl_brand.id 
+    JOIN tbl_category ON p.category_id = tbl_category.id 
+    WHERE tbl_category.type = "essentials"
+    `
+    database.db.query(selectQuery, (err,rows,result) =>{
+        if (err){
+            res.status(500).json({
+                successful : false,
+                message : err
+            })   
+        }
+        else if (rows.length <= 0){
+            res.status(400).json({
+                successful:false,
+                message: "No Products in the Database"
+            })
+        }
+        else{
+            res.status(200).json({
+                successful:true,
+                message: "Successfully Got All Products ",
+                count: rows.length,
+                data:rows
+            })
+        }
+    })
+
+}
+
 
 
 
@@ -440,7 +524,7 @@ const updateImageQuery = (req,res,next)=>{
     const url = req.body.url;
     
     let updateQuery = `
-    UPDATE tbl_product SET top_img = ? Where id = ?
+    UPDATE tbl_product SET main_img = ? Where id = ?
     `
     database.db.query(updateQuery, [url, id], (err,rows,result) =>{
         if (err){
@@ -477,6 +561,8 @@ module.exports = {
     viewOldestToNewest,
     viewLowestToHighest,
     viewHighestToLowest,
+    viewapparels,
+    viewessentials,
     updateImageQuery,
     viewProductViaProductName,
     filterSneakerSizes,

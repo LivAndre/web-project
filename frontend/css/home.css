@@ -24,6 +24,19 @@
 }
 
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+
+
+
+
+    
 .home,
 .home * {
   box-sizing: border-box;
@@ -32,7 +45,7 @@
   background: #fafafa;
   padding: 10px;
   width: 1920px;
-  height: 4253px;
+  height: 3600px;
   position: relative;
   overflow: hidden;
 }
@@ -118,11 +131,11 @@
   width: 1216px;
   height: 128px;
   position: absolute;
-  left: 160px;
+  left: 415px;
   top: 144px;
 }
 .category-card {
-  background: #ededed;
+  background: #f3f3f3;
   border-radius: 15px;
   padding: 24px 52px 24px 52px;
   display: flex;
@@ -136,10 +149,12 @@
   position: absolute;
   left: 35.5px;
   top: 5px;
+  box-shadow:  34px 34px 69px #d9d9d9,
+              -34px -34px 69px #ffffff;
   transition: transform 0.3s ease; /* kevs */
 }
 .category-card:hover { /* kevs */
-  background: #ff0000; 
+  background: #dbdbdb; 
   transform: translateY(-5px); 
 }
 .sneaker {
@@ -170,10 +185,12 @@
   position: absolute;
   left: 271.25px;
   top: 5px;
-  transition: transform 0.3s ease; /* kevs */
+  box-shadow:  34px 34px 69px #d9d9d9,
+              -34px -34px 69px #ffffff;
+transition: transform 0.3s ease; /* kevs */
 }
 .category-card2:hover { /* kevs */
-  background: #ff0000; 
+  background: #dbdbdb; 
   transform: translateY(-5px); 
 }
 .shrink img{
@@ -208,10 +225,12 @@ transition: 1s ease;
   position: absolute;
   left: 507px;
   top: 5px;
-  transition: transform 0.3s ease; /* kevs */
+  box-shadow:  34px 34px 69px #d9d9d9,
+              -34px -34px 69px #ffffff;
+transition: transform 0.3s ease; /* kevs */
 }
 .category-card3:hover { /* kevs */
-  background: #ff0000; 
+  background: #dbdbdb; 
   transform: translateY(-5px); 
 }
 .vector3 {
@@ -245,10 +264,12 @@ transition: 1s ease;
   position: absolute;
   left: 741.5px;
   top: 5px;
-  transition: transform 0.3s ease; /* kevs */
+  box-shadow:  34px 34px 69px #d9d9d9,
+              -34px -34px 69px #ffffff;
+transition: transform 0.3s ease; /* kevs */
 }
 .category-card4:hover { /* kevs */
-  background: #ff0000; 
+  background: #dbdbdb; 
   transform: translateY(-5px); 
 }
 .pants {
@@ -395,14 +416,14 @@ transition: 1s ease;
 .adidas {
   color: #000000;
   text-align: left;
-  font: 400 49px/40px "PaytoneOne-Regular", sans-serif;
+  font: 400 49px/40px "PaytoneOne-Regular", neue;
   position: relative;
   align-self: stretch;
 }
 .adidas-is-a-german-multinational-sportswear-company-that-designs-and-manufactures-shoes-apparel-and-accessories {
   color: #4f4d4d;
   text-align: left;
-  font: 400 14px/24px "Coolvetica-Regular",  Coolvetica;
+  font: 400 14px/24px "Coolvetica-Regular",  sfpro;
   position: relative;
   align-self: stretch;
 }
@@ -446,7 +467,7 @@ transition: 1s ease;
 .reebok {
   color: #000000;
   text-align: left;
-  font: 400 29px/40px "Coolvetica-Regular",  Coolvetica;
+  font: 400 29px/40px "Coolvetica-Regular",  neue;
   position: relative;
   width: 129px;
   height: 49px;
@@ -454,7 +475,7 @@ transition: 1s ease;
 .viewed-from-above {
   color: #676464;
   text-align: left;
-  font: 700 14px/24px "NeueMontreal-Bold",  neue;
+  font: 700 14px/24px "NeueMontreal-Bold",  sfpro;
   position: relative;
 }
 .square-banner2 {
@@ -475,7 +496,7 @@ transition: 1s ease;
 .asics {
   color: var(--main-white, #ffffff);
   text-align: left;
-  font: 400 29px/40px "ZenDots-Regular", sans-serif;
+  font: 400 29px/40px "ZenDots-Regular", neue;
   position: absolute;
   left: 0px;
   top: 24px;
@@ -492,11 +513,11 @@ transition: 1s ease;
 }
 .add-a-heading-7-1-1 {
   border-radius: 71px;
-  width: 419.31px;
-  height: 223.11px;
+  width: 319.31px;
+  height: 323.11px;
   position: absolute;
-  left: 79.71px;
-  top: 191.03px;
+  left: 129.71px;
+  top: 121.03px;
   transform-origin: 0 0;
   transform: rotate(-45.926deg) scale(1, 1);
 }
@@ -505,9 +526,9 @@ transition: 1s ease;
   height: 341px;
   position: absolute;
   left: -9.49px;
-  top: 535px;
-  transform-origin: 0 0;
-  transform: rotate(0deg) scale(1, -1);
+  top: 235px;
+  transform-origin: 1 -1;
+  transform: rotate(5deg) scale(1, -1);
 }
 .big-banner {
   background: #ededed;
@@ -540,14 +561,14 @@ transition: 1s ease;
 .new-balance {
   color: #000000;
   text-align: left;
-  font: 400 64px/56px "FugazOne-Regular", sans-serif;
+  font: 400 64px/56px "FugazOne-Regular", neue;
   position: relative;
   align-self: stretch;
 }
 .nbtitle {
   color: #5c5a5a;
   text-align: left;
-  font: 400 14px/24px "Coolvetica-Regular",  Coolvetica;
+  font: 400 14px/24px "Coolvetica-Regular",  sfpro;
   position: relative;
   align-self: stretch;
 }
@@ -598,7 +619,7 @@ transition: 1s ease;
   width: 1920px;
   position: absolute;
   left: calc(50% - 960px);
-  top: calc(50% - 1984.5px);
+  top: calc(50% - 1658.5px);
   overflow: hidden;
 }
 .content2 {
@@ -1007,7 +1028,7 @@ transition: 1s ease;
   transform-origin: 0 0;
   transform: rotate(0) scale(1, 1);
 }
-.products {
+.productss {
   background: #ffffff;
   padding: 56px 160px 56px 160px;
   width: 1912px;
@@ -1078,6 +1099,27 @@ transition: 1s ease;
   left: 160px;
   top: 120px;
 }
+.cardd {
+  background: #f6f6f6;
+  border-radius: 9px;
+  padding: 24px 16px 24px 16px;
+  flex: 1;
+  height: 432px;
+  min-width: 200px;
+  position: relative;
+}
+.text-iconn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 234.67px;
+  position: absolute;
+  left: 75px;
+  top: 248px;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -1135,6 +1177,16 @@ transition: 1s ease;
   position: absolute;
   left: 75px;
   top: 196px;
+}
+.info4 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
 }
 .nike-panda-vintages-low {
   color: var(--main-black, #000000);
@@ -1351,6 +1403,25 @@ transition: 1s ease;
   left: 110.7px;
   top: 53.14px;
 }
+.j-1-ts-2 {
+  width: 186.24px;
+  height: 160.61px;
+  position: absolute;
+  left: 99.21px;
+  top: 56px;
+}
+.roww {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-self: stretch;
+  flex-shrink: 0;
+  min-width: 200px;
+  position: relative;
+}
 .text-icon4 {
   display: flex;
   flex-direction: column;
@@ -1366,7 +1437,7 @@ transition: 1s ease;
 .jordan-1-travis-scott {
   color: var(--main-black, #000000);
   text-align: center;
-  font: 500 16px/24px "SfProDisplay-Medium", SFPROMED;
+  font: 500 16px/24px "SfProDisplay-Medium", sans-serif;
   position: relative;
   align-self: stretch;
 }
@@ -1376,6 +1447,38 @@ transition: 1s ease;
   font: 700 24px/24px "SfProDisplay-Bold",  SFPRO;
   position: relative;
   align-self: stretch;
+}
+
+.buttonn {
+  background: var(--main-black, #000000);
+  border-radius: 8px;
+  padding: 12px 64px 12px 64px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  transform: translateY(0); /* Initial position */
+  transition: transform 0.3s ease; /* Add transition for a smoother effect */
+}
+.buttonn:hover {
+  transform: translateY(-5px); /* Move the button 5 pixels up on hover */
+}
+
+.labell {
+  color: var(--main-white, #ffffff);
+  text-align: center;
+  font: 500 14px/24px "SfProDisplay-Medium", sans-serif;
+  position: relative;
+  cursor: pointer; /* Add this to make it look clickable */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for a smoother effect */
+}
+
+.labell:hover {
+  color: #ffffff; /* Change the text color on hover */
+  transform: translateY(-5px); /* Move the button 5 pixels up on hover */
 }
 .row2 {
   display: flex;
@@ -1699,7 +1802,7 @@ transition: 1s ease;
   height: 469px;
   position: absolute;
   left: calc(50% - 960px);
-  top: 3784px;
+  top: 3145px;
 }
 .info3 {
   width: 1119px;
@@ -1832,7 +1935,7 @@ transition: 1s ease;
   height: 448px;
   position: absolute;
   left: calc(50% - 960px);
-  top: calc(50% - -1209.5px);
+  top: calc(50% - -900.5px);
   overflow: hidden;
 }
 .jbl-jr-310-bt-blue-1 {

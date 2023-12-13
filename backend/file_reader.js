@@ -19,7 +19,7 @@ function readFileFn(file, callback) {
     readFileFn(file, (url)=>{
         //THIS IS THE URL OF THE IMAGE TO BE INSERTED IN THE DATABASE
 
-        console.log(url)
+        // console.log(url)
         let payload = {
             id: id,
             url: url

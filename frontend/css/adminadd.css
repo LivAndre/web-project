@@ -1,0 +1,181 @@
+@font-face {
+    font-family: SFPRO;
+    src: url(/frontend/fonts/SFPRODISPLAYBOLD.OTF);
+  }
+  @font-face {
+    font-family: SFPROMED;
+    src: url(/frontend/fonts/SFPRODISPLAYMEDIUM.OTF);
+  }
+  @font-face {
+    font-family: Coolvetica;
+    src: url(/frontend/fonts/coolvetica\ rg.otf);
+  }
+  @font-face {
+    font-family: ftr;
+    src: url(/frontend/fonts/Futura\ Condensed\ Bold.otf);
+  }
+  @font-face {
+    font-family: neue;
+    src: url(/frontend/fonts/neue-montreal-bold.otf);
+  }
+  @font-face {
+    font-family: stretched;
+    src: url(/frontend/fonts/StretchPro.otf);
+  }
+.admin-product-manager,
+.admin-product-manager * {
+  box-sizing: border-box;
+}
+.admin-product-manager {
+  background: #160404;
+  width: 1920px;
+  height: 1024px;
+  position: relative;
+  overflow: hidden;
+}
+.hero {
+  background: #e8e8e8;
+  width: 1920px;
+  height: 1024px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.rectangle-8 {
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+  width: 492px;
+  height: 593px;
+  position: absolute;
+  left: 714px;
+  top: 291px;
+}
+.add-a-heading-1-1 {
+  width: 379px;
+  height: 191px;
+  position: absolute;
+  left: 770px;
+  top: 48px;
+}
+.product-manager {
+  color: #000000;
+  text-align: center;
+  font-family: "NeueMontreal-Bold", neue;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  position: absolute;
+  left: 796px;
+  top: 324px;
+  width: 327px;
+}
+.add-a-product-id {
+  color: #ff0404;
+  text-align: center;
+  font-family: "NeueMontreal-Bold", neue;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  position: relative;
+  left: 796px;
+  top: 450px;
+  width: 327px;
+}
+.choose-file {
+  color: #ff0404;
+  text-align: left;
+  font-family: "NeueMontreal-Bold", neue;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  position: absolute;
+  left: 844px;
+  top: 568px;
+  width: 327px;
+}
+.rectangle-9 {
+  background: #ffffff;
+  width: 219px;
+  height: 38px;
+  position: absolute;
+  left: 850px;
+  top: 512px;
+}
+.rectangle-10 {
+  background: #e0e0e0;
+  width: 219px;
+  height: 38px;
+  position: absolute;
+  left: 850px;
+  top: 621px;
+}
+.rectangle-11 {
+  background: #ffffff;
+  width: 219px;
+  height: 38px;
+  position: absolute;
+  left: 850px;
+  top: 767px;
+  --primary-color: #645bff;
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+}
+
+.rectangle-11 .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rectangle-11 .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.rectangle-11 .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.rectangle-11:hover {
+  background-color: var(--hover-color);
+}
+
+.rectangle-11:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.rectangle-11:hover .arrow:before {
+  right: 0;
+}

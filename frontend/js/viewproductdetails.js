@@ -39,16 +39,16 @@ function initializeProdDetails(){
             
 
             backImg.addEventListener("mouseover", () => {
-                mainImg.src = backImg.src;
-              });
+                mainImg.src = backImg.src
+              })
               
             mainImg2.addEventListener("mouseover", () => {
-                mainImg.src = mainImg2.src;
-            });
+                mainImg.src = mainImg2.src
+            })
               
             topImg.addEventListener("mouseover", () => {
-                mainImg.src = topImg.src;
-             });
+                mainImg.src = topImg.src
+             })
 
 
         }

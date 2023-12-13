@@ -24,7 +24,7 @@
             />
           </svg>
       
-          <div class="steps">
+          <!-- <div class="steps">
             <div class="step-4">
               <div class="icon-24-px-payment">
                 <svg
@@ -46,7 +46,7 @@
                 <div class="address">Payment</div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="content">
             <div class="left-side">
               <div class="summary">Summary</div>
@@ -81,13 +81,13 @@
                 </div>
               </div>
               <div class="details">
-                <div class="price-info">
+                <!-- <div class="price-info">
                   <div class="taxes">
                     <div class="price"></div>
                   </div>
-                </div>
+                </div> -->
               </div>
-              <div class="shipment-info">
+              <!-- <div class="shipment-info">
                 <div class="title-field">
                   <div class="fname">First Name</div>
                   <div class="namefield">
@@ -115,7 +115,7 @@
                     <input type="text" name="contact" id="contact">
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="title-field2">
                 
                 <div class="shipment-method"><b>Shipment method</b></div>
@@ -138,26 +138,49 @@
                   <div class="_140">₱140</div>
                 </div>
               </div>
+              
               <div class="total">
+                
                 <div class="total2">Total</div>
                 <div class="_32270">₱32270</div>
               </div>
             </div>
             <div class="right-side">
               <div class="payment-details">
+                <div class="buyer-details">Buyer Details</div>
                 <div class="top">
-                  <div class="payment">Payment</div>
-                  <div class="tabs">
-                    <div class="selected">
-                      <div class="g-cash">GCash</div>
+                  <div class="title-field">
+                      <div class="fname">First Name</div>
+                      <div class="detailsfield">
+                        <input class="input-details" id="fname" placeholder="Type here">
+                      </div>
+                      <div class="lname">Last Name</div>
+                      <div class="detailsfield">
+                        <input class="input-details" id="lanme" placeholder="Type here">
+                      </div>
                     </div>
-                  </div>
+                    <div class="contact-field">
+                      <div class="address2">Address</div>
+                      <div class="detailsfield">
+                        <input class="input-details" id="address" placeholder="Type here">
+                      </div>
+                      <div class="e-mail">E-Mail</div>
+                      <div class="detailsfield">
+                        <input class="input-details" id="email" placeholder="Type here">
+                      </div>  
+                    </div>
+                <div class="contact-field2">
+                <div class="contact">Contact Number</div>
+                      <div class="detailsfield">
+                        <input class="input-details" id="contact" placeholder="Type here">
+                      </div>
+                    </div>
+                  
                 </div>
-                <div class="button">
-                  <div class="label">Direct to GCASH</div>
-                </div>
+                
               </div>
-              <div class="checbox-field">
+              <!-- same as billing checkbox -->
+              <!-- <div class="checbox-field">
                 <svg
                   class="done-round"
                   width="17"
@@ -181,15 +204,15 @@
                 </svg>
       
                 <div class="apple-110">Same as billing address</div>
-              </div>
+              </div> -->
               <div class="buttons">
-                <div class="button2">
-                  <div class="label2">Back</div>
-                </div>
+                <a href="/frontend/html/cart.html">  <div class="button2">
+                 <div class="label2">Back</div>
+                </div></a>
                 <a href="/frontend/html/confirm.html"><div class="button3">
                   <div class="label3">Pay</div>
-                </a>
-                </div>
+                
+                </div></a>
               
               </div>
             </div>
@@ -325,7 +348,7 @@
               </defs>
             </svg>
           </div>
-          <img class="beyond-1" src="/frontend/img/BEYOND 1.png" />
+          <a href="/frontend/html/home.html"> <img class="beyond-1" src="/frontend/img/BEYOND 1.png" /></a>
         </div>
         <div class="header">
           <div class="header-top">
@@ -343,7 +366,8 @@
                 >
               </div>
             </div>
-            <div class="icons">
+            <!-- remove favorites -->
+            <!-- <div class="icons">
               <svg
                 class="icon-32-px-favorites"
                 width="32"
@@ -360,8 +384,8 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
-            <div class="icon-32-px-cart">
+            </div> -->
+           <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
               <svg
                 class="cart-1"
                 width="32"
@@ -378,32 +402,29 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
+            </div></a> 
           </div>
           <div class="subnav">
             <div class="nav-category">
-              <div class="phones">Shoes</div>
+              <a href="/frontend/html/ProdPage.html"><div class="phones">Shoes</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="computers">Apparels</div>
+              <a href="/frontend/html/apparelsPage.html"><div class="computers">Apparels</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="smart-watches">Essentials</div>
+              <a href="/frontend/html/essentialsPage.html"> <div class="smart-watches">Essentials</div></a>
             </div>
-            <div class="devider"></div>
+            <!-- <div class="devider"></div>
             <div class="nav-category">
               <div class="cameras">Kits</div>
-            </div>
+            </div> -->
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="headphones">New Arrivals</div>
+              <a href="/frontend/html/home.html#new-arrivals"> <div class="headphones">New Arrivals</div></a>
             </div>
-            <div class="devider"></div>
-            <div class="nav-category">
-              <div class="gaming">News</div>
-            </div>
+            
           </div>
         </div>
       </div>

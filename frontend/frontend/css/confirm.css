@@ -1,0 +1,349 @@
+.confirmation,
+.confirmation * {
+  box-sizing: border-box;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+.confirmation {
+  background: #160404;
+  width: 1920px;
+  height: 1516px;
+  position: relative;
+  overflow: hidden;
+}
+.hero {
+  background: #ffffff;
+  width: 1920px;
+  height: 1516px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.navbar {
+  background: #ffffff;
+  width: 1440px;
+  height: 90px;
+  position: absolute;
+  left: 447px;
+  top: 0px;
+}
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 87px;
+  top: 0px;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.link-item {
+  padding: 33px 20px 33px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.home {
+  color: var(--neutral-gray-900, #0f172a);
+  text-align: center;
+  font: 700 16px/24px "SfProDisplay-Bold", sans-serif;
+  position: relative;
+  transform: translateY(0); /* kevs */
+  transition: transform 0.3s ease; /* kevs */
+}
+.home:hover {
+  transform: translateY(-5px); /* kevs */
+  color: #ff0000; /* kevs */
+}
+
+.about {
+  color: var(--neutral-gray-900, #0f172a);
+  text-align: center;
+  font: 700 16px/24px "SfProDisplay-Bold", sans-serif;
+  position: relative;
+  transform: translateY(0); /* kevs */
+  transition: transform 0.3s ease; /* kevs */
+}
+.about:hover {
+  transform: translateY(-5px); /* kevs */
+  color: #ff0000; /* kevs */
+}
+.contact {
+  color: var(--neutral-gray-900, #0f172a);
+  text-align: center;
+  font: 700 16px/24px "SfProDisplay-Bold", sans-serif;
+  position: relative;
+  transform: translateY(0); /* kevs */
+  transition: transform 0.3s ease; /* kevs */
+}
+.contact:hover {
+  transform: translateY(-5px); /* kevs */
+  color: #ff0000; /* kevs */
+}
+.pricing {
+  color: var(--neutral-gray-900, #0f172a);
+  text-align: center;
+  font: 700 16px/24px "SfProDisplay-Bold", sans-serif;
+  position: relative;
+  transform: translateY(0); /* kevs */
+  transition: transform 0.3s ease; /* kevs */
+}
+.pricing:hover {
+  transform: translateY(-5px); /* kevs */
+  color: #ff0000; /* kevs */
+}
+.button {
+  background: var(--primary-blue-500, #1d4ed8);
+  border-radius: 5px;
+  padding: 12px 18px 12px 18px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  transform: translateY(0); /* kevs */
+  transition: transform 0.3s ease; /* kevs */
+}
+.button:hover { /* kevs */
+  transform: translateY(-5px); /* kevs */
+}
+.socials {
+  color: var(--neutral-gray-50, #f8fafc);
+  text-align: center;
+  font: var(
+    --heading-h-5-small-semi-bold,
+    600 14px/20px "Inter-SemiBold",
+    sans-serif
+  );
+  position: relative;
+  transform: translateY(0); /* kevs */
+  transition: transform 0.3s ease; /* kevs */
+}
+.socials:hover { /* kevs */
+  transform: translateY(-5px); /* kevs */
+}
+.frame-11 {
+  display: flex;
+  flex-direction: column;
+  gap: 74px;
+  align-items: center;
+  justify-content: flex-start;
+  height: 187px;
+  position: absolute;
+  left: 220px;
+  top: 154px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 1039px;
+  height: 260px;
+  position: relative;
+}
+.text {
+  text-align: center;
+  position: absolute;
+  left: 261.36px;
+  top: 907.08px;
+  width: 1435.27px;
+  height: 144px;
+}
+.text-span {
+  color: #000000;
+  font: 700 25px/24px "NeueMontreal-Bold", sans-serif;
+}
+.text-span2 {
+  color: #000000;
+  font: 700 21px/24px "NeueMontreal-Bold", sans-serif;
+}
+.text-span3 {
+  color: #000000;
+  font: 700 25px/24px "NeueMontreal-Bold", sans-serif;
+}
+.text-span4 {
+  color: #000000;
+  font: 700 20px/24px "NeueMontreal-Bold", sans-serif;
+}
+.text-span5 {
+  color: #ff0000;
+  font: 700 20px/24px "NeueMontreal-Bold", sans-serif;
+}
+.order-confirmed {
+  color: #ff0404;
+  text-align: left;
+  font: 700 30px/40px "NeueMontreal-Bold", sans-serif;
+  position: absolute;
+  left: 821.44px;
+  top: 800px;
+  width: 315.12px;
+}
+.thanks-1 {
+  width: 1930.5px;
+  height: 646.72px;
+  position: absolute;
+  left: 0px;
+  top: 105.5px;
+}
+.footer {
+  background: #000000;
+  padding: 104px 160px 104px 160px;
+  width: 1924px;
+  height: 469px;
+  position: absolute;
+  left: calc(50% - 960px);
+  top: 1141.99px;
+}
+.info {
+  width: 1119px;
+  height: 216px;
+  position: absolute;
+  left: 160px;
+  top: 104px;
+}
+.logo-text {
+  width: 384px;
+  height: 104px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.beyond-shoe-game-manila-where-every-step-tells-your-story-elevate-your-style-game-with-our-exclusive-sneaker-collection-more-than-a-shoe-it-s-a-statement-step-into-the-extraordinary-explore-beyond-ordinary-footwear-with-us {
+  color: #cfcfcf;
+  text-align: left;
+  font: 700 14px/170.5% "SfProDisplay-Bold", sans-serif;
+  position: absolute;
+  left: 60.38px;
+  top: 87px;
+  width: 384px;
+}
+.footer-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 623px;
+  position: absolute;
+  left: 1262px;
+  top: 104px;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 295.5px;
+  position: relative;
+}
+.socials2 {
+  color: var(--main-white, #ffffff);
+  text-align: left;
+  font: 700 16px/16px "SfProDisplay-Bold", sans-serif;
+  position: relative;
+}
+.bonus-program-gift-cards-payments-service-contracts-non-cash-account-payment {
+  color: #cfcfcf;
+  text-align: left;
+  font: 500 14px/32px "SfProDisplay-Medium", sans-serif;
+  position: relative;
+  align-self: stretch;
+}
+.assistance-to-the-buyer {
+  color: var(--main-white, #ffffff);
+  text-align: left;
+  font: 700 16px/16px "SfProDisplay-Bold", sans-serif;
+  position: relative;
+}
+.find-an-order-terms-of-delivery-exchange-and-return-of-goods-guarantee-frequently-asked-questions-terms-of-use-of-the-site {
+  color: #cfcfcf;
+  text-align: left;
+  font: 500 14px/32px "SfProDisplay-Medium", sans-serif;
+  position: relative;
+  align-self: stretch;
+}
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 173px;
+  position: absolute;
+  left: 219.08px;
+  top: 320px;
+}
+.icon-16-px-twitter {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  overflow: visible;
+}
+.icon-16-px-facebook {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  overflow: visible;
+}
+.icon-16-px-tiktok {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  overflow: visible;
+}
+.icon-16-px-instagram {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  overflow: visible;
+}
+.beyond-1 {
+  width: 216.08px;
+  height: 170.78px;
+  position: absolute;
+  left: 176px;
+  top: 32.61px;
+}
+.add-a-heading-1-1 {
+  width: 151px;
+  height: 62px;
+  position: absolute;
+  left: 220px;
+  top: 23px;
+}
+.j-1-1 {
+  width: 1417px;
+  height: 620px;
+  position: absolute;
+  left: 260px; /* kevs */
+  top: 490px; /* kevs */
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

@@ -2,6 +2,13 @@
 .confirmation * {
   box-sizing: border-box;
 }
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
 .confirmation {
   background: #160404;
   width: 1920px;
@@ -332,11 +339,4 @@
   left: 220px;
   top: 23px;
 }
-.j-1-1 {
-  width: 1417px;
-  height: 620px;
-  position: absolute;
-  left: 260px; /* kevs */
-  top: 490px; /* kevs */
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+

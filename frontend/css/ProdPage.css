@@ -22,15 +22,21 @@
     font-family: stretched;
     src: url(/frontend/fonts/StretchPro.otf);
   }
-
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
 .product-page,
 .product-page * {
   box-sizing: border-box;
 }
 .product-page {
-  background: #160404;
+  background: #ffffff;
   width: 1920px;
-  height: 2163px;
+  height: 4163px;
   position: relative;
   overflow: hidden;
 }
@@ -420,7 +426,7 @@
   gap: 8px;
   align-items: flex-end;
   justify-content: flex-start;
-  flex: 1;
+  flex: 4;
   position: relative;
 }
 .text {
@@ -455,7 +461,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 .info3 {
   display: flex;
@@ -508,7 +514,7 @@
   border-width: 0.5px;
   padding: 8px ;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
   align-items: center;
   justify-content: flex-start;

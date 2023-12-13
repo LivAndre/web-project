@@ -1,5 +1,5 @@
 const getAllProducts = (sortType) => {
-    let url = '';
+    let url = ``;
   
     switch (sortType) {
       case 'High to Lowest':

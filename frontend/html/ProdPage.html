@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -143,7 +144,7 @@
               </defs>
             </svg>
           </div>
-          <img class="beyond-1" src="/frontend/img/BEYOND 1.png" />
+          <a href="/frontend/html/home.html"> <img class="beyond-1" src="/frontend/img/BEYOND 1.png" /></a>
         </div>
         <div class="footer2">
           <div class="info2">
@@ -196,7 +197,8 @@
         </div>
         <div class="content">
           <div class="filters">
-            <div class="price">
+            <!-- price column -->
+            <!-- <div class="price">
               <div class="dropdown">
                 <div class="title">Price</div>
                 <svg
@@ -212,38 +214,43 @@
       
                 <div class="line"></div>
               </div>
-              <div class="price-filter">
-                <div class="from-to">
+              <div class="price-filter"> -->
+                <!-- <div class="from-to">
                   <div class="content2">
                     <div class="text">
                       <div class="from">
-                        <span
-                          ><span class="from-span">From</span
-                          ><span class="from-span2"> </span
-                        ></span>
+                        <span><span class="from-span">From</span></span>
+                
                       </div>
-                      <div class="to">To</div>
+                      <br>
+                      <div class="to">
+                        <span><span class="from-span">To</span></span></div>
                     </div>
-                    <!-- <div class="info3"> -->
+                    
                       <div class="info-1">
                         
-               <input type="text" id="name" name="name" placeholder="1500" maxlength="6" size="4">
+                     <input type="text" id="name" name="name" placeholder="1500" maxlength="6" size="11">
                       </div>
+                      
                       <div class="line-16"></div>
+                      <div class="to"> 
+                        
+                    </div>
                       <div class="info-2">
-               <input type="text" id="name" name="name" placeholder="1500" maxlength="6" size="4">
+                      <input type="text" id="name" name="name2" placeholder="1500" maxlength="6" size="11">
                       </div>
-                    <!-- </div> -->
+                    
                   </div>
-                </div>
-                <div class="scroll">
+                </div> -->
+                <!-- scroll bar -->
+                <!-- <div class="scroll">
                   <div class="rectangle-6"></div>
                   <div class="ellipse-66"></div>
                   <div class="rectangle-7"></div>
                   <div class="ellipse-67"></div>
-                </div>
-              </div>
-            </div>
+                </div> -->
+              <!-- </div>
+            </div> -->
             <div class="brand">
               <div class="dropdown">
                 <div class="title">Brand</div>
@@ -278,12 +285,12 @@
               <label class="container">
                 <input type="checkbox" checked="checked">
                 <div class="checkmark"></div>
-                <span class="checkbox-text">Asics</span>
+                <span class="checkbox-text">Converse</span>
               </label>
               <label class="container">
                 <input type="checkbox" checked="checked">
                 <div class="checkmark"></div>
-                <span class="checkbox-text">Vans</span>
+                <span class="checkbox-text">Reebok</span>
               </label>
             </div>
             <div class="sizing">
@@ -352,49 +359,51 @@
                 <script>
                   $(document).ready(function() {
                   $('#default').click(function() {
-                    var buttonText = $('.buttonz').text();
-                    var highToLowest = 'High to Lowest ▼';
+                    var buttonText = $('.buttonz').text()
+                    var highToLowest = 'High to Lowest ▼'
                     if (buttonText !== highToLowest) {
-                      $('.buttonz').text(highToLowest);
-                      getAllProducts('High to Lowest');
+                      $('.buttonz').text(highToLowest)
+                      getAllProducts('High to Lowest')
                     } else {
-                      var currentText = $('.buttonz').text();
-                      var originalText = currentText.split(' ')[0];
-                      $('.buttonz').text(originalText + ' ▼');
-                      getAllProducts('High to Lowest');
+                      var currentText = $('.buttonz').text()
+                      var originalText = currentText.split(' ')[0]
+                      $('.buttonz').text(originalText + ' ▼')
+                      getAllProducts('High to Lowest')
                     }
-                  });
+                  })
 
                   $('#top').click(function() {
-                    $('.buttonz').text('Lowest to Highest ▼');
-                    getAllProducts('Lowest to Highest');
-                  });
+                    $('.buttonz').text('Lowest to Highest ▼')
+                    getAllProducts('Lowest to Highest')
+                  })
 
                   $('#middle').click(function() {
-                    $('.buttonz').text('Newest ▼');
-                    getAllProducts('Newest');
-                  });
+                    $('.buttonz').text('Newest ▼')
+                    getAllProducts('Newest')
+                  })
 
                   $('#bottom').click(function() {
-                    $('.buttonz').text('Oldest ▼');
-                    getAllProducts('Oldest');
-                  });
-                });
+                    $('.buttonz').text('Oldest ▼')
+                    getAllProducts('Oldest')
+                  })
+                })
                 </script>
                 
               </div>
 
-              <div class="products" id="product-list">
-                <script src="../js/api_client.js"></script>
-                <script src="../js/util.js"></script>
-                <script src="../js/product.js"></script>
-                <script>
-                  getAllProducts()
-                </script>
-               
-              </div>
+            
             </div>
-            <div class="pagination">
+            
+            <div class="products" id="product-list">
+              <script src="../js/api_client.js"></script>
+              <script src="../js/util.js"></script>
+              <script src="../js/product.js"></script>
+              <script>
+                getAllProducts()
+              </script>
+             
+            </div>
+            <!-- <div class="pagination">
               <svg
                 class="icon-24-px-arrow"
                 width="24"
@@ -436,7 +445,7 @@
               >
                 <path d="M9 6L15 12L9 18" stroke="black" />
               </svg>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="breadcrumbs">
@@ -469,7 +478,7 @@
         <div class="add-a-heading-1-1"></div>
         <div class="header">
           <div class="header-top">
-            <img class="add-a-heading-1-12" src="/frontend/img/Add a heading (1) 1.png" />
+            <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
 
             <input type="text" name="text" placeholder="Search BSG'" class="input">
         <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
@@ -483,7 +492,8 @@
                   ></span><!--kevs-->
               </div>
             </div>
-            <div class="icons">
+            <!-- remove favorites -->
+            <!-- <div class="icons">
               <svg
                 class="icon-32-px-favorites"
                 width="32"
@@ -500,8 +510,8 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
-            <div class="icon-32-px-cart">
+            </div> -->
+            <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
               <svg
                 class="cart-1"
                 width="32"
@@ -511,39 +521,33 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M3 5.91675H7L10 22.9167H26M10 17.5834H25.59C25.7056 17.5835 25.8177 17.5435 25.9072 17.4702C25.9966 17.3969 26.0579 17.2949 26.0806 17.1815L27.8806 8.18154C27.8951 8.10897 27.8934 8.03408 27.8755 7.96227C27.8575 7.89046 27.8239 7.82354 27.7769 7.76631C27.73 7.70909 27.6709 7.663 27.604 7.63137C27.5371 7.59974 27.464 7.58336 27.39 7.58341H8M12 26.9167C12 27.469 11.5523 27.9167 11 27.9167C10.4477 27.9167 10 27.469 10 26.9167C10 26.3645 10.4477 25.9167 11 25.9167C11.5523 25.9167 12 26.3645 12 26.9167ZM26 26.9167C26 27.469 25.5523 27.9167 25 27.9167C24.4477 27.9167 24 27.469 24 26.9167C24 26.3645 24.4477 25.9167 25 25.9167C25.5523 25.9167 26 26.3645 26 26.9167Z"
+                  d="M3 5.91676H7L10 22.9168H26M10 17.5834H25.59C25.7056 17.5835 25.8177 17.5435 25.9072 17.4702C25.9966 17.397 26.0579 17.2949 26.0806 17.1816L27.8806 8.18156C27.8951 8.10898 27.8934 8.03409 27.8755 7.96229C27.8575 7.89048 27.8239 7.82355 27.7769 7.76633C27.73 7.7091 27.6709 7.66302 27.604 7.63139C27.5371 7.59976 27.464 7.58338 27.39 7.58343H8M12 26.9168C12 27.469 11.5523 27.9168 11 27.9168C10.4477 27.9168 10 27.469 10 26.9168C10 26.3645 10.4477 25.9168 11 25.9168C11.5523 25.9168 12 26.3645 12 26.9168ZM26 26.9168C26 27.469 25.5523 27.9168 25 27.9168C24.4477 27.9168 24 27.469 24 26.9168C24 26.3645 24.4477 25.9168 25 25.9168C25.5523 25.9168 26 26.3645 26 26.9168Z"
                   stroke="#FF0000"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
+            </div></a>
           </div>
           <div class="subnav">
             <div class="nav-category">
-              <div class="phones">Shoes</div>
+              <a href="/frontend/html/ProdPage.html"><div class="phones">Shoes</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="computers">Apparels</div>
+              <a href="/frontend/html/apparelsPage.html"><div class="computers">Apparels</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="smart-watches">Essentials</div>
+              <a href="/frontend/html/essentialsPage.html"><div class="smart-watches">Essentials</div></a>
             </div>
+            
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="cameras">Kits</div>
+              <a href="/frontend/html/home.html#new-arrivals"> <div class="headphones">New Arrivals</div></a>
             </div>
-            <div class="devider"></div>
-            <div class="nav-category">
-              <div class="headphones">New Arrivals</div>
-            </div>
-            <div class="devider"></div>
-            <div class="nav-category">
-              <div class="gaming">News</div>
-            </div>
+            
           </div>
         </div>
       </div>

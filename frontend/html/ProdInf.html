@@ -17,6 +17,7 @@
             <div class="images">
               <div class="product-images">
                 <img class="image-65" id="product-main-img-back" src="" />
+
                 <img
                 id="product-main-img-top"
                   class="image-67"
@@ -38,7 +39,17 @@
                     <div class="_1399" id="product-price"></div>
                     <!-- <div class="_1499">$1499</div> -->
                   </div>
-               
+                  <!-- select colors -->
+                  <!-- <div class="colors">
+                    <div class="select-color">Select color :</div>
+                    <div class="frame-427319309">
+                      <div class="ellipse-12"></div>
+                      <div class="ellipse-13"></div>
+                      <div class="ellipse-15"></div>
+                      <div class="ellipse-16"></div>
+                      <div class="ellipse-14"></div>
+                    </div>
+                  </div> -->
                   <div class="tabs-memory">
                     <div class="tab">
                       <div class="_256-gb">7</div>
@@ -59,11 +70,7 @@
                 </div>
                 <div class="info2">
                   <div class="text" id="product-desc">
-                    Inspired by the popular MR2002, the New Balance 2002RD casual
-                    shoes offer a callback to the running style of the 2000s in a
-                    modified mule silhouette. The upper of these sneakers is crafted
-                    from a mix of rugged nubuck leather and lightweight mesh for a
-                    balanced feel.
+                    
                   </div>
                 </div>
               </div>
@@ -97,7 +104,8 @@
                   </div>
                   <div class="available-delivery">Available Delivery</div>
                 </div>
-                <div class="feature">
+                <!-- in stock today -->
+                <!-- <div class="feature">
                   <div class="icon-56-px-stock">
                     <svg
                       class="shop-2-svgrepo-com-2"
@@ -121,7 +129,7 @@
                       ><span class="in-stock-today-span2">Today </span></span
                     >
                   </div>
-                </div>
+                </div> -->
                 <div class="feature">
                   <div class="icon-56-px-guaranteed">
                     <svg
@@ -203,18 +211,18 @@
               <path d="M9 6.5L15 12.5L9 18.5" stroke="#A4A4A4" />
             </svg>
       
-            <div class="new-balance-2002-r" id="product-name-top">New Balance 2002r</div>
+            <div class="new-balance-2002-r" id="product-name-top"></div>
           </div>
         </div>
         <div class="header2">
           <div class="header-top">
-            <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" />
+            <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
             <input type="text" name="text" placeholder="Search BSG'" class="input">
             <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
 
             <div class="navigation"><!--kevs-->
-              <div class="home2">Home</div>
-              <div class="about">About</div>
+              <a href="/frontend/html/home.html"><div class="home2">Home</div></a>
+              <a href="/frontend/html/about.html"><div class="about">About</div></a>  
               <div class="contact-us">
                  <span
                   ><span class="contact-us-span">Contact Us</span 
@@ -222,7 +230,7 @@
                 >
               </div>
             </div><!--kevs-->
-
+            <!-- favorite
             <div class="icons2">
               <svg
                 class="icon-32-px-favorites"
@@ -240,8 +248,8 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
-            <div class="icon-32-px-cart">
+            </div> -->
+            <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
               <svg
                 class="cart-1"
                 width="32"
@@ -251,38 +259,30 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M3 5.91675H7L10 22.9167H26M10 17.5834H25.59C25.7056 17.5835 25.8177 17.5435 25.9072 17.4702C25.9966 17.3969 26.0579 17.2949 26.0806 17.1815L27.8806 8.18154C27.8951 8.10897 27.8934 8.03408 27.8755 7.96227C27.8575 7.89046 27.8239 7.82354 27.7769 7.76631C27.73 7.70909 27.6709 7.663 27.604 7.63137C27.5371 7.59974 27.464 7.58336 27.39 7.58341H8M12 26.9167C12 27.469 11.5523 27.9167 11 27.9167C10.4477 27.9167 10 27.469 10 26.9167C10 26.3645 10.4477 25.9167 11 25.9167C11.5523 25.9167 12 26.3645 12 26.9167ZM26 26.9167C26 27.469 25.5523 27.9167 25 27.9167C24.4477 27.9167 24 27.469 24 26.9167C24 26.3645 24.4477 25.9167 25 25.9167C25.5523 25.9167 26 26.3645 26 26.9167Z"
+                  d="M3 5.91676H7L10 22.9168H26M10 17.5834H25.59C25.7056 17.5835 25.8177 17.5435 25.9072 17.4702C25.9966 17.397 26.0579 17.2949 26.0806 17.1816L27.8806 8.18156C27.8951 8.10898 27.8934 8.03409 27.8755 7.96229C27.8575 7.89048 27.8239 7.82355 27.7769 7.76633C27.73 7.7091 27.6709 7.66302 27.604 7.63139C27.5371 7.59976 27.464 7.58338 27.39 7.58343H8M12 26.9168C12 27.469 11.5523 27.9168 11 27.9168C10.4477 27.9168 10 27.469 10 26.9168C10 26.3645 10.4477 25.9168 11 25.9168C11.5523 25.9168 12 26.3645 12 26.9168ZM26 26.9168C26 27.469 25.5523 27.9168 25 27.9168C24.4477 27.9168 24 27.469 24 26.9168C24 26.3645 24.4477 25.9168 25 25.9168C25.5523 25.9168 26 26.3645 26 26.9168Z"
                   stroke="#FF0000"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
+            </div></a>
           </div>
           <div class="subnav">
             <div class="nav-category">
-              <div class="phones">Shoes</div>
+              <a href="/frontend/html/ProdPage.html"><div class="phones">Shoes</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="computers">Apparels</div>
+              <a href="/frontend/html/apparelsPage.html"><div class="computers">Apparels</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="smart-watches">Essentials</div>
+              <a href="/frontend/html/essentialsPage.html"><div class="smart-watches">Essentials</div></a>
             </div>
             <div class="devider"></div>
             <div class="nav-category">
-              <div class="cameras">Kits</div>
-            </div>
-            <div class="devider"></div>
-            <div class="nav-category">
-              <div class="headphones">New Arrivals</div>
-            </div>
-            <div class="devider"></div>
-            <div class="nav-category">
-              <div class="gaming">News</div>
+              <a href="/frontend/html/home.html#new-arrivals"> <div class="headphones">New Arrivals</div></a>
             </div>
           </div>
         </div>
@@ -415,7 +415,7 @@
               </defs>
             </svg>
           </div>
-          <img class="beyond-1" src="/frontend/img/BEYOND 1.png" />
+          <a href="/frontend/html/home.html"> <img class="beyond-1" src="/frontend/img/BEYOND 1.png" /></a>
         </div>
       </div>
       <script src="../js/api_client.js"></script>

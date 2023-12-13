@@ -11,4 +11,3 @@ server.listen(port, ()=>{
     console.log(`server is listening in port ${port}`)
 })
 
-// console.log("../images/shoes/s-1640.jpg")
