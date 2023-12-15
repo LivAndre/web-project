@@ -5,6 +5,7 @@ const userRouter = express.Router()
 
 userRouter.get('/view/user/all', userController.viewAllUsers)
 userRouter.get('/view/user/:id', userController.viewUserById)
+userRouter.post('/add-user',userController.addUser ) 
 
 
 
