@@ -1,5 +1,7 @@
 const getAllProducts = (sortType) => {
     let url = ``;
+
+    console.log("getAllProducts")
   
     switch (sortType) {
       case 'High to Lowest':
@@ -15,7 +17,7 @@ const getAllProducts = (sortType) => {
         url = `${getUrl("DEV_URL")}/products/view/oldesttonewest`
         break
       default:
-        url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
+        url = getSearchedProduct()
         break
     }
     
@@ -38,6 +40,16 @@ const getAllProducts = (sortType) => {
             console.log(response.message)
         }
     })
+}
+
+const getSearchedProduct = ()=>{
+
+  let sortURL = `${getUrl("DEV_URL")}/products/view/highesttolowest`
+  let searchURL = `${getUrl("DEV_URL")}/products/view/search`
+
+  let finalURL = (sessionStorage.getItem("searchedProduct") === null) ? sortURL : `${searchURL}/${sessionStorage.getItem("searchedProduct")}`
+
+  return finalURL
 }
 
 
@@ -94,4 +106,13 @@ const redirectToProdDetails = (id)=>{
     setTimeout(()=>{
         window.location.href = "ProdInf.html"
     }, 2000)
+}
+
+const searchProduct =(ele)=>{
+  if(event.key === 'Enter') {
+      sessionStorage.setItem("searchedProduct", ele.value)
+      setTimeout(()=>{
+        window.location.href = "ProdPage.html"
+    }, 2000)        
+  }
 }

@@ -1,6 +1,8 @@
 const getAllProducts = ()=>{
     let url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
 
+    console.log("test")
+
     let content = {
         "method": "GET",
         "headers": {
