@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="/frontend/css/socials.css">
 </head>
 <body>
+  <div id="cartIdContainer" name = "cartId" value =""></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+    });
+  </script>
     <div class="confirmation">
         <div class="hero">
           <div class="navbar">

@@ -10,11 +10,16 @@
 </head>
 
 <body>
-    <!-- insert loader here
-    <div class="loader"></div> -->
-  
-  
-    
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+    });
+  </script>
 </div>
   <div class="home">
     <div class="category">
@@ -217,6 +222,8 @@
           </div>
         </div>
         <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
+        <script src="/frontend/js/util.js"></script>
+        <div id="cartIdContainer" name = "cartId" value =""></div>
           <svg
             class="cart-1"
             width="32"

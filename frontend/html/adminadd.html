@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="/frontend/css/adminadd.css">
 </head>
 <body>
+  <div id="cartIdContainer" name = "cartId" value =""></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+    });
+  </script>
     <div class="admin-product-manager">
         <div class="hero">
           <div class="rectangle-8"></div>
