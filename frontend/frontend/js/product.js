@@ -1,26 +1,7 @@
-const getAllProducts = (sortType) => {
-    let url = ``;
+const getAllProducts = ()=>{
+    let url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
 
-    console.log("getAllProducts")
-  
-    switch (sortType) {
-      case 'High to Lowest':
-        url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
-        break
-      case 'Lowest to Highest':
-        url = `${getUrl("DEV_URL")}/products/view/lowesttohighest`
-        break
-      case 'Newest':
-        url = `${getUrl("DEV_URL")}/products/view/newesttooldest`
-        break
-      case 'Oldest':
-        url = `${getUrl("DEV_URL")}/products/view/oldesttonewest`
-        break
-      default:
-        url = getSearchedProduct()
-        break
-    }
-    
+    console.log("test")
 
     let content = {
         "method": "GET",
@@ -32,7 +13,6 @@ const getAllProducts = (sortType) => {
     api_client(url, content, (response)=>{
         if (response.successful == true){
             document.getElementById("total-product-count").innerHTML = response.count
-            
             populateAllProducts(response.data)
             
         }
@@ -42,17 +22,6 @@ const getAllProducts = (sortType) => {
     })
 }
 
-const getSearchedProduct = ()=>{
-
-  let sortURL = `${getUrl("DEV_URL")}/products/view/highesttolowest`
-  let searchURL = `${getUrl("DEV_URL")}/products/view/search`
-
-  let finalURL = (sessionStorage.getItem("searchedProduct") === null) ? sortURL : `${searchURL}/${sessionStorage.getItem("searchedProduct")}`
-
-  return finalURL
-}
-
-
 const populateAllProducts = (data)=>{
 
     
@@ -60,7 +29,7 @@ const populateAllProducts = (data)=>{
     let innerHTML = ""
 
     let count = 1
-    
+
     for (let i in data){
         let el = data[i]
 
@@ -85,7 +54,6 @@ const populateAllProducts = (data)=>{
         <img class="j-1-ts-2" src="${el["main_img"]}" />
       </div>
         `
-        
         if (count == 3){
             innerHTML += `</div>`
             
@@ -106,13 +74,4 @@ const redirectToProdDetails = (id)=>{
     setTimeout(()=>{
         window.location.href = "ProdInf.html"
     }, 2000)
-}
-
-const searchProduct =(ele)=>{
-  if(event.key === 'Enter') {
-      sessionStorage.setItem("searchedProduct", ele.value)
-      setTimeout(()=>{
-        window.location.href = "ProdPage.html"
-    }, 2000)        
-  }
 }
