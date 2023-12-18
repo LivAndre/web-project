@@ -66,6 +66,7 @@ function initializeProdDetails(){
              }
 
              document.getElementById("shoe-sizes-tab").innerHTML = innerHTML
+             sessionStorage.setItem("selectedStockId", stockData[0].stock_id)
 
         }
         else{
@@ -81,6 +82,8 @@ const changePrice = (price, el)=>{
 
     let list = document.getElementsByClassName("viewproductdetailssizes")
 
+    sessionStorage.setItem("selectedStockId", el.value)
+
     for (let i=0; i<list.length; i++){
         if (list[i].id == `viewproductdetailssizes${el.value}`){
             list[i].classList.add("tab2")
@@ -92,5 +95,6 @@ const changePrice = (price, el)=>{
         }
     }
 }
+
 
 

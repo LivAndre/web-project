@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const addToCartButton = document.getElementById('addToCartButton');
 
     const cartID = sessionStorage.getItem("cartId");
-    const productID = sessionStorage.getItem("selectedProdId");
+    const productID = sessionStorage.getItem("selectedStockId");
 
     console.log(cartID)
     console.log(productID)
