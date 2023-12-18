@@ -17,8 +17,13 @@
       if (cartId) {
         cartIdContainer.setAttribute('value',cartId);
       }
+
+      viewOrderSummary()
     });
   </script>
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/order_summary.js"></script>
     <div class="proccessing-step-3">
         <div class="hero">
           <div class="back">Back</div>
@@ -62,7 +67,7 @@
           <div class="content">
             <div class="left-side">
               <div class="summary">Summary</div>
-              <div class="selected-products">
+              <div class="selected-products" id="order-summary-products">
                 <div class="added-product">
                   <div class="text2">
                     <div class="adidas-yeezy-700-classic">
@@ -140,21 +145,27 @@
               <div class="subtotal">
                 
                 <div class="subtotal2">Subtotal</div>
-                <div class="_32000">₱32000</div>
+                <div class="_32000" id="order-summary-subtotal">₱32000</div>
               </div>
               <div class="price2">
                 <div class="text3">
                   <div class="estimated-shipping-handling">
-                    Estimated shipping &amp; Handling
+                    Estimated Tax
                   </div>
-                  <div class="_140">₱140</div>
+                  <div class="_140">₱150.00</div>
+                </div>
+                <div class="text3">
+                  <div class="estimated-shipping-handling">
+                    Estimated Shipping &amp; Handling
+                  </div>
+                  <div class="_140">₱120.00</div>
                 </div>
               </div>
               
               <div class="total">
                 
                 <div class="total2">Total</div>
-                <div class="_32270">₱32270</div>
+                <div class="_32270" id="order-summary-total">₱32270</div>
               </div>
             </div>
             <div class="right-side">
