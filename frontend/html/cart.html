@@ -19,6 +19,7 @@
       }
     });
   </script>
+  <script src="../js/util.js"></script>
   <script src="../js/checkout.js"></script>
   <script src="../js/api_client.js"></script>
 
@@ -27,7 +28,7 @@
           <div class="content">
             <div class="left-side">
               <div class="shopping-cart">Shopping Cart</div>
-              <div class="products">
+              <div class="products" id="shopping-cart-items">
                 <div class="cart-product">
                   <div class="content2">
                     <div class="info">
@@ -178,13 +179,13 @@
                   <div class="prices">
                     <div class="subtotal">
                       <div class="subtotal2">Subtotal</div>
-                      <div class="_32-000">₱32,000</div>
+                      <div class="_32-000" id="cart-subtotal">₱32,000</div>
                     </div>
                     <div class="taxes">
                       <div class="price">
                         <div class="text">
                           <div class="estimated-tax">Estimated Tax</div>
-                          <div class="_150">₱150</div>
+                          <div class="_150">₱150.00</div>
                         </div>
                       </div>
                       <div class="price">
@@ -192,13 +193,13 @@
                           <div class="estimated-shipping-handling">
                             Estimated shipping &amp; Handling
                           </div>
-                          <div class="_120">₱120</div>
+                          <div class="_120">₱120.00</div>
                         </div>
                       </div>
                     </div>
                     <div class="total">
                       <div class="total2">Total</div>
-                      <div class="_32-270">₱32,270</div>
+                      <div class="_32-270" id="cart-total">₱32,270</div>
                     </div>
                   </div>
                 </div>

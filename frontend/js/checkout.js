@@ -14,6 +14,86 @@ document.addEventListener('DOMContentLoaded', function () {
     // Call the api_client function
     api_client(apiUrl, options, function (response) {
         console.log('Response:', response);
-        // Handle the response here
+        if (response.successful == false){
+            //TO DO: SHOW ERROR MESSAGE
+        }
+        else{
+            if (response.count == 0){
+                //TO DO: SHOW NO CART ITEMS
+            }
+            else{
+                let innerHTML = ``
+
+                let subtotal = 0
+
+                for (let i in response.items){
+                    let el = response.items[i]
+
+                    subtotal += el.price
+
+                    innerHTML += `
+                    <div class="cart-product">
+                  <div class="content2">
+                    <div class="info">
+                      <div class="adidas-yeezy-700-classic">
+                        ${el.name}<br>Size: ${el.size.replace(" us", "")}
+                      </div>
+                      
+                    </div>
+                    <div class="right-side">
+                     
+                      <div class="_11000">₱${el.price}</div>
+                      <svg
+                        class="icon-24-px-close"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 6L6 18"
+                          stroke="black"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6 6L18 18"
+                          stroke="black"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <img class="yeezy-3" src="${el.image}" />
+                </div>
+                <svg
+                  class="devider"
+                  width="536"
+                  height="2"
+                  viewBox="0 0 536 2"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 1C209.321 1 326.679 1 536 1"
+                    stroke="#A3A3A3"
+                    stroke-width="0.5"
+                  />
+                </svg>
+                    `
+                }
+
+                let tax = parseFloat(150)
+                let shipping = parseFloat(120)
+                let total = parseFloat(subtotal + tax + shipping)
+                document.getElementById("shopping-cart-items").innerHTML = innerHTML
+                document.getElementById("cart-subtotal").innerHTML = "₱"+formatNumber(subtotal, true)
+                document.getElementById("cart-total").innerHTML = "₱"+formatNumber(total, true)
+            }
+        }
+
+
     })
 });

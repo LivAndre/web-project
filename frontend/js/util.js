@@ -34,3 +34,16 @@ function generateCartId() {
         cartIdContainerHomepage.setAttribute('value',cartId);
     }
   };
+
+function formatNumber(value, isDecimal) {
+
+    let numberFractions = (isDecimal ? 2 : 0)
+    const options = {
+        style: 'decimal', 
+        minimumFractionDigits: numberFractions,
+        maximumFractionDigits: numberFractions,
+      };
+    
+    const formattedWithOptions = value.toLocaleString('en-US', options);
+    return formattedWithOptions
+}

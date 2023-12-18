@@ -13,9 +13,22 @@ const getAllItems = (req, res, next) => {
     });
   }
 
-  const retrieveCartProducts = 'SELECT * FROM tbl_cart WHERE id = ?';
+  const retrieveCartProducts = `SELECT
+  tbl_cart.id as cart_id,
+  tbl_cart.productstock_id as stock_id,
+  tbl_productstock.price as price,
+  tbl_productstock.size as size,
+  tbl_product.main_img as image,
+  tbl_product.name as name
+   FROM tbl_cart 
+   INNER JOIN tbl_productstock ON tbl_productstock.id = tbl_cart.productstock_id
+   INNER JOIN tbl_product ON tbl_product.id = tbl_productstock.product_id 
 
-  database.db.query(retrieveCartProducts, [cartId], (checkErr, checkResult) => {
+   WHERE tbl_cart.id = '${cartId}'
+   ORDER BY tbl_cart.productstock_id
+   `;
+
+  database.db.query(retrieveCartProducts, (checkErr, checkResult) => {
     if (checkErr) {
       console.error(checkErr);
 
@@ -26,20 +39,23 @@ const getAllItems = (req, res, next) => {
     }
 
     if (checkResult.length > 0) {
-      const items = checkResult.map(item => ({
-        id: item.id,
-        productId: item.productstock_id,
-      }));
+      // const items = checkResult.map(item => ({
+      //   id: item.id,
+      //   productId: item.productstock_id,
+      // }));
 
       return res.status(200).json({
         successful: true,
         message: `Cart ID: ${cartId}, Items:`,
-        items: items
+        count: checkResult.length,
+        items: checkResult
       });
     } else {
       return res.status(404).json({
-        successful: false,
-        message: `No Items in Cart: ${cartId}`
+        successful: true,
+        message: `No Items in Cart: ${cartId}`,
+        count: checkResult.length,
+        items: []
       });
     }
   });
