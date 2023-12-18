@@ -142,12 +142,15 @@ const formatProductStockDetails = (rows, callback)=>{
 
     for (let i in rows){
         let el = rows[i]
-        stockDetails.push({
-            stock_id: parseInt(el.stock_id),
-            size: parseFloat(el.size.replace(" us", "")),
-            quantity: parseInt(el.quantity),
-            price: parseFloat(el.price)
-        })
+        if (el.quantity > 0){
+            stockDetails.push({
+                stock_id: parseInt(el.stock_id),
+                size: parseFloat(el.size.replace(" us", "")),
+                quantity: parseInt(el.quantity),
+                price: parseFloat(el.price)
+            })
+        }
+        
     }
 
     let newRows = {

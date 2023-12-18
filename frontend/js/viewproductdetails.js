@@ -82,7 +82,6 @@ const changePrice = (price, el)=>{
     let list = document.getElementsByClassName("viewproductdetailssizes")
 
     for (let i=0; i<list.length; i++){
-        console.log(`List ID = ${list[i].id}`)
         if (list[i].id == `viewproductdetailssizes${el.value}`){
             list[i].classList.add("tab2")
             list[i].classList.remove("tab")
