@@ -1,6 +1,6 @@
-const transaction_model = (productstock_id, user_id, reference_number, date_of_purchase, price, mode_of_payment) =>{
+const transaction_model = (cart_id, user_id, reference_number, date_of_purchase, price, mode_of_payment) =>{
     let transaction = {
-        productstock_id : productstock_id,
+        cart_id : cart_id,
         user_id : user_id,
         reference_number : reference_number,
         date_of_purchase : date_of_purchase,

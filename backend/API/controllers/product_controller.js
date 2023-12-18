@@ -19,7 +19,6 @@ const viewProductViaProductName = (req, res, next) => {
       FROM tbl_product JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
       JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
       WHERE tbl_product.name LIKE ?`
-      
       let searchValue = `%${prodName}%`
   
       database.db.query(query, [searchValue], (err, rows, result) => {
@@ -95,6 +94,7 @@ const viewNewArrivals = (req,res,next)=>{
     JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
     JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
     WHERE created_at >= DATE_SUB(NOW(), INTERVAL 1 WEEK)
+    ORDER BY created_at DESC
     `
     database.db.query(selectQuery, (err,rows,result) =>{
         if (err){

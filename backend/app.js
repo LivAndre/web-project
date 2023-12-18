@@ -12,6 +12,8 @@ const categoryRouter = require('./API/routers/category_router')
 const productstockRouter = require('./API/routers/productstock_router')
 const userRouter = require('./API/routers/user_router')
 const transactionRouter = require('./API/routers/transaction_router')
+const cartRouter = require('./API/routers/cart_router')
+
 
 
 
@@ -48,6 +50,7 @@ app.use('/categories', categoryRouter)
 app.use('/productstocks', productstockRouter)
 app.use('/users', userRouter)  
 app.use('/transactions', transactionRouter)  
+app.use('/cart', cartRouter)
 
 
 

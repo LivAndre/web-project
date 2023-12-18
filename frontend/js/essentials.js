@@ -1,5 +1,5 @@
 const getAllProducts = () => {
-    let url = `${getUrl("DEV_URL")}/products/view/essentials`;
+    let url = `${getUrl("DEV_URL")}/products/view/essentials`
   
    
 

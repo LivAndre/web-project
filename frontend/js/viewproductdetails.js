@@ -60,3 +60,6 @@ function initializeProdDetails(){
    
 }
 
+
+
+
