@@ -15,7 +15,7 @@ const getAllProducts = (sortType) => {
         url = `${getUrl("DEV_URL")}/products/view/oldesttonewest`
         break
       default:
-        url = `${getUrl("DEV_URL")}/products/view/highesttolowest`
+        url = getSearchedProduct()
         break
     }
     
@@ -94,4 +94,22 @@ const redirectToProdDetails = (id)=>{
     setTimeout(()=>{
         window.location.href = "ProdInf.html"
     }, 2000)
+}
+
+const searchProduct =(el)=>{
+
+  if (event.key == "Enter"){
+    // alert(el.value)
+    sessionStorage.setItem("searchedProduct", el.value)
+    setTimeout(()=>{
+      window.location.href = "ProdPage.html"
+  }, 2000)        
+  }
+}
+
+const getSearchedProduct = ()=>{
+  let sortURL = `${getUrl("DEV_URL")}/products/view/highesttolowest`
+  let searchURL = `${getUrl("DEV_URL")}/products/view/search`
+  let finalURL = (sessionStorage.getItem("searchedProduct") === null) ? sortURL : `${searchURL}/${sessionStorage.getItem("searchedProduct")}`
+  return finalURL
 }

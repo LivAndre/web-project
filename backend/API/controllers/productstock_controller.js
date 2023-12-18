@@ -44,7 +44,7 @@ const viewByProductstockId = (req,res,next) =>{
     else{
       
         let query = `
-        SELECT product_id, tbl_brand.name as brand_name, size, main_img, back_img, top_img, tbl_product.name, 
+        SELECT product_id, tbl_productstock.id as stock_id, tbl_brand.name as brand_name, size, main_img, back_img, top_img, tbl_product.name, 
         description, quantity, price 
         FROM tbl_product 
         INNER JOIN tbl_productstock ON tbl_productstock.product_id = tbl_product.id 
@@ -60,11 +60,14 @@ const viewByProductstockId = (req,res,next) =>{
             }
             else{
                 if(rows.length>0){
+                    formatProductStockDetails(rows, (newRows)=>{
                         res.status(200).json({
-                        successful:true,
-                         message:`successfully Founded Product ID: ${id} `,
-                         data:rows         
+                            successful:true,
+                             message:`successfully Founded Product ID: ${id} `,
+                             data:newRows         
+                        })
                     })
+                        
                 }
                 else{
                     res.status(400).json({
@@ -122,7 +125,39 @@ const viewByProductstockId = (req,res,next) =>{
         })
     }
   }
-  
+
+const formatProductStockDetails = (rows, callback)=>{
+
+    let productDetails = {
+        product_id: rows[0].product_id,
+        name: rows[0].name,
+        description: rows[0].description,
+        brand_name: rows[0].brand_name,
+        main_img: rows[0].main_img,
+        back_img: rows[0].back_img,
+        top_img: rows[0].top_img
+    }
+
+    let stockDetails = []
+
+    for (let i in rows){
+        let el = rows[i]
+        stockDetails.push({
+            stock_id: parseInt(el.stock_id),
+            size: parseFloat(el.size.replace(" us", "")),
+            quantity: parseInt(el.quantity),
+            price: parseFloat(el.price)
+        })
+    }
+
+    let newRows = {
+        product_details: productDetails,
+        stock_details: stockDetails
+    }
+
+    callback(newRows)
+
+}
 
 module.exports = {
     viewAllProductStocks,

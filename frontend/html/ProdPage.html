@@ -11,17 +11,6 @@
 
 <body>
   <div id="cartIdContainer" name = "cartId" value =""></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartIdContainer = document.getElementById('cartIdContainer');
-      const cartId = sessionStorage.getItem('cartId');
-
-      if (cartId) {
-        cartIdContainer.setAttribute('value',cartId);
-      }
-    });
-  </script>
     <div class="product-page">
         <div class="hero">
           <div class="navbar"></div>
@@ -368,38 +357,7 @@
                   </div>
                 </div>
               
-                <script>
-                  $(document).ready(function() {
-                  $('#default').click(function() {
-                    var buttonText = $('.buttonz').text()
-                    var highToLowest = 'High to Lowest ▼'
-                    if (buttonText !== highToLowest) {
-                      $('.buttonz').text(highToLowest)
-                      getAllProducts('High to Lowest')
-                    } else {
-                      var currentText = $('.buttonz').text()
-                      var originalText = currentText.split(' ')[0]
-                      $('.buttonz').text(originalText + ' ▼')
-                      getAllProducts('High to Lowest')
-                    }
-                  })
-
-                  $('#top').click(function() {
-                    $('.buttonz').text('Lowest to Highest ▼')
-                    getAllProducts('Lowest to Highest')
-                  })
-
-                  $('#middle').click(function() {
-                    $('.buttonz').text('Newest ▼')
-                    getAllProducts('Newest')
-                  })
-
-                  $('#bottom').click(function() {
-                    $('.buttonz').text('Oldest ▼')
-                    getAllProducts('Oldest')
-                  })
-                })
-                </script>
+                
                 
               </div>
 
@@ -407,12 +365,7 @@
             </div>
             
             <div class="products" id="product-list">
-              <script src="../js/api_client.js"></script>
-              <script src="../js/util.js"></script>
-              <script src="../js/product.js"></script>
-              <script>
-                getAllProducts()
-              </script>
+              
              
             </div>
             <!-- <div class="pagination">
@@ -492,9 +445,11 @@
           <div class="header-top">
             <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
 
-            <form id="searchForm" action="searchPage.html">
-              <input type="text" name="searchProduct" placeholder="Search BSG" class="input">
-            </form>
+            <!-- <form id="searchForm" action="javascript:void(0)">
+              <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
+            </form> -->
+
+            <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
             
             <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
 
@@ -568,6 +523,51 @@
       </div>
       
   
+      <script src="../js/api_client.js"></script>
+      <script src="../js/util.js"></script>
+      <script src="../js/product.js"></script>
+      <script>
+        getAllProducts()
+        $(document).ready(function() {
+        $('#default').click(function() {
+          var buttonText = $('.buttonz').text()
+          var highToLowest = 'High to Lowest ▼'
+          if (buttonText !== highToLowest) {
+            $('.buttonz').text(highToLowest)
+            getAllProducts('High to Lowest')
+          } else {
+            var currentText = $('.buttonz').text()
+            var originalText = currentText.split(' ')[0]
+            $('.buttonz').text(originalText + ' ▼')
+            getAllProducts('High to Lowest')
+          }
+        })
+
+        $('#top').click(function() {
+          $('.buttonz').text('Lowest to Highest ▼')
+          getAllProducts('Lowest to Highest')
+        })
+
+        $('#middle').click(function() {
+          $('.buttonz').text('Newest ▼')
+          getAllProducts('Newest')
+        })
+
+        $('#bottom').click(function() {
+          $('.buttonz').text('Oldest ▼')
+          getAllProducts('Oldest')
+        })
+      })
+
+        document.addEventListener('DOMContentLoaded', function() {
+          const cartIdContainer = document.getElementById('cartIdContainer');
+          const cartId = sessionStorage.getItem('cartId');
+
+          if (cartId) {
+            cartIdContainer.setAttribute('value',cartId);
+          }
+        });
+      </script>
      
 </body>
 </html>

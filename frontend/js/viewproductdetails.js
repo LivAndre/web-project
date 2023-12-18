@@ -12,13 +12,16 @@ function initializeProdDetails(){
     
     api_client(url, content, (response)=>{
         if (response.successful == true){
-            let productName = response.data[0].name
-            let productBrand = response.data[0].brand_name
-            let productDescription = response.data[0].description
-            let productPrice = response.data[0].price
-            let productImg = response.data[0].main_img
-            let productTop = response.data[0].top_img
-            let productImgBack = response.data[0].back_img
+
+            let productData = response.data.product_details
+            let stockData = response.data.stock_details
+            let productName = productData.name
+            let productBrand = productData.brand_name
+            let productDescription = productData.description
+            let productPrice = stockData[0].price
+            let productImg = productData.main_img
+            let productTop = productData.top_img
+            let productImgBack = productData.back_img
 
             document.getElementById("product-brand-top").innerHTML = productBrand
             document.getElementById("product-name-top").innerHTML = productName
@@ -50,6 +53,19 @@ function initializeProdDetails(){
                 mainImg.src = topImg.src
              })
 
+             let innerHTML = ``
+             for (let i in stockData){
+                let el = stockData[i]
+
+                innerHTML += `<div class="${i == 0 ? 'tab2' : 'tab'} viewproductdetailssizes" id="viewproductdetailssizes${el.stock_id}">
+                <label>
+                <input type="radio" name="memory" value="${el.stock_id}" onclick="changePrice(${el.price}, this)">
+                ${el.size}
+              </label>
+            </div>`
+             }
+
+             document.getElementById("shoe-sizes-tab").innerHTML = innerHTML
 
         }
         else{
@@ -60,6 +76,22 @@ function initializeProdDetails(){
    
 }
 
+const changePrice = (price, el)=>{
+    document.getElementById("product-price").innerHTML = "₱"+price
 
+    let list = document.getElementsByClassName("viewproductdetailssizes")
+
+    for (let i=0; i<list.length; i++){
+        console.log(`List ID = ${list[i].id}`)
+        if (list[i].id == `viewproductdetailssizes${el.value}`){
+            list[i].classList.add("tab2")
+            list[i].classList.remove("tab")
+        }
+        else{
+            list[i].classList.remove("tab2")
+            list[i].classList.add("tab")
+        }
+    }
+}
 
 

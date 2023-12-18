@@ -9,16 +9,7 @@
 </head>
 
 <body>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartIdContainer = document.getElementById('cartIdContainer');
-      const cartId = sessionStorage.getItem('cartId');
-
-      if (cartId) {
-        cartIdContainer.setAttribute('value',cartId);
-      }
-    });
-  </script>
+  
 </div>
   <div class="home">
     <div class="category">
@@ -207,7 +198,7 @@
     <div class="header">
       <div class="header-top">
         <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
-        <input type="text" name="text" placeholder="Search BSG'" class="input">
+        <input type="text" name="text" placeholder="Search BSG'" class="input" onkeydown="searchProduct(this)">
         <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
        
         <div class="navigation">
@@ -221,7 +212,7 @@
           </div></a>
         </div>
         <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
-        <script src="/frontend/js/util.js"></script>
+        <!-- <script src="/frontend/js/util.js"></script> -->
         <div id="cartIdContainer" name = "cartId" value =""></div>
           <svg
             class="cart-1"
@@ -294,12 +285,7 @@
 
         <div class="products" id="product-list">
      
-          <script src="../js/api_client.js"></script>
-          <script src="../js/util.js"></script>
-          <script src="../js/newarrivals.js"></script>
-          <script>
-              getAllProducts()
-          </script>
+         
     
           
         </div>
@@ -538,8 +524,22 @@
       loader.remove();
     });
   </script> -->
-  
-  
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/newarrivals.js"></script>
+  <script src="../js/product.js"></script>
+  <script>
+    getNewArrivals()
+    sessionStorage.removeItem("searchedProduct")
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+    });
+  </script>
 
 </body>
 
