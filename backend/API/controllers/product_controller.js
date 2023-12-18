@@ -14,18 +14,11 @@ const viewProductViaProductName = (req, res, next) => {
       })
     } else {    
       let query = `
-      SELECT tbl_brand.name AS brand_name , tbl_category.type, p.id, p.name, p.description, p.created_at, 
-    p.main_img, p.back_img, p.top_img , min_price.min_price
-    FROM tbl_product AS p
-    JOIN (
-        SELECT product_id, MIN(price) AS min_price
-        FROM tbl_productstock
-        GROUP BY product_id
-    ) AS min_price ON p.id = min_price.product_id
-    JOIN tbl_brand ON p.brand_id = tbl_brand.id 
-    JOIN tbl_category ON p.category_id = tbl_category.id  
-      WHERE p.name LIKE ?`
-      
+      SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.name, description, created_at, main_img, 
+      back_img, top_img 
+      FROM tbl_product JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
+      JOIN tbl_category ON tbl_product.category_id = tbl_category.id 
+      WHERE tbl_product.name LIKE ?`
       let searchValue = `%${prodName}%`
   
       database.db.query(query, [searchValue], (err, rows, result) => {

@@ -2,10 +2,52 @@ const { json } = require('body-parser');
 const database = require('../models/connection_db')
 const cartModel = require('../models/cart_model')
 
+const getAllItems = (req, res, next) => {
+  const cartId = req.query.cart_id;
 
+  // Validate cart_id
+  if (!cartId) {
+    return res.status(400).json({
+      successful: false,
+      message: 'Cart ID is required.'
+    });
+  }
+
+  const retrieveCartProducts = 'SELECT * FROM tbl_cart WHERE id = ?';
+
+  database.db.query(retrieveCartProducts, [cartId], (checkErr, checkResult) => {
+    if (checkErr) {
+      console.error(checkErr);
+
+      return res.status(500).json({
+        successful: false,
+        message: 'Internal Server Error'
+      });
+    }
+
+    if (checkResult.length > 0) {
+      const items = checkResult.map(item => ({
+        id: item.id,
+        productId: item.productstock_id,
+      }));
+
+      return res.status(200).json({
+        successful: true,
+        message: `Cart ID: ${cartId}, Items:`,
+        items: items
+      });
+    } else {
+      return res.status(404).json({
+        successful: false,
+        message: `No Items in Cart: ${cartId}`
+      });
+    }
+  });
+};
 
 const addToCart = (req, res, next) => {
     let productstockId = req.body.productstock_id
+    let cartId = req.body.cart_id
   
     // Check if productstockId exists in tbl_productstock
     const checkProductQuery = 'SELECT * FROM tbl_productstock WHERE id = ?'
@@ -17,10 +59,10 @@ const addToCart = (req, res, next) => {
         })
       } else {
         if (checkResult.length > 0) {
-          const insertQuery = `INSERT INTO tbl_cart SET ?`
-          const cartObj = cartModel.cart_model(productstockId)
+          const insertQuery = 'INSERT INTO tbl_cart (id, productstock_id) VALUES (?, ?)';
+          const values = [cartId, productstockId];
   
-          database.db.query(insertQuery, cartObj, (err, rows, result) => {
+          database.db.query(insertQuery, values, (err, rows, result) => {
             if (err) {
               res.status(500).json({
                 successful: false,
@@ -29,7 +71,7 @@ const addToCart = (req, res, next) => {
             } else {
               res.status(200).json({
                 successful: true,
-                message: "Successfully added Product to cart!"
+                message: `Cart ID: ${cartId}, Product ID: ${productstockId} SUCCESS`
               })
             }
           })
@@ -72,5 +114,6 @@ const addToCart = (req, res, next) => {
   
 module.exports = {
     addToCart,
-    deleteItem
+    deleteItem,
+    getAllItems
 }

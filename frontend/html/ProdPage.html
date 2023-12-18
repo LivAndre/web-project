@@ -368,7 +368,38 @@
                   </div>
                 </div>
               
-                
+                <script>
+                  $(document).ready(function() {
+                  $('#default').click(function() {
+                    var buttonText = $('.buttonz').text()
+                    var highToLowest = 'High to Lowest ▼'
+                    if (buttonText !== highToLowest) {
+                      $('.buttonz').text(highToLowest)
+                      getAllProducts('High to Lowest')
+                    } else {
+                      var currentText = $('.buttonz').text()
+                      var originalText = currentText.split(' ')[0]
+                      $('.buttonz').text(originalText + ' ▼')
+                      getAllProducts('High to Lowest')
+                    }
+                  })
+
+                  $('#top').click(function() {
+                    $('.buttonz').text('Lowest to Highest ▼')
+                    getAllProducts('Lowest to Highest')
+                  })
+
+                  $('#middle').click(function() {
+                    $('.buttonz').text('Newest ▼')
+                    getAllProducts('Newest')
+                  })
+
+                  $('#bottom').click(function() {
+                    $('.buttonz').text('Oldest ▼')
+                    getAllProducts('Oldest')
+                  })
+                })
+                </script>
                 
               </div>
 
@@ -376,7 +407,12 @@
             </div>
             
             <div class="products" id="product-list">
-              
+              <script src="../js/api_client.js"></script>
+              <script src="../js/util.js"></script>
+              <script src="../js/product.js"></script>
+              <script>
+                getAllProducts()
+              </script>
              
             </div>
             <!-- <div class="pagination">
@@ -465,10 +501,10 @@
             <div class="navigation">
               <a href="/frontend/html/home.html"><div class="home">Home</div></a>
               <a href="/frontend/html/about.html"><div class="about">About</div></a>
-              <div class="contact-us">
+              <a href="/frontend/html/socials.html"><div class="contact-us">
                 <!--kevs--><span
                   ><span class="contact-us-span">Contact Us</span
-                  ></span><!--kevs-->
+                  ></span><!--kevs--></a>
               </div>
             </div>
             <!-- remove favorites -->
@@ -532,43 +568,6 @@
       </div>
       
   
-      <script src="../js/api_client.js"></script>
-      <script src="../js/util.js"></script>
-      <script src="../js/product.js"></script>
-      <script>
-        getAllProducts()
-        
-        $(document).ready(function() {
-        $('#default').click(function() {
-          var buttonText = $('.buttonz').text()
-          var highToLowest = 'High to Lowest ▼'
-          if (buttonText !== highToLowest) {
-            $('.buttonz').text(highToLowest)
-            getAllProducts('High to Lowest')
-          } else {
-            var currentText = $('.buttonz').text()
-            var originalText = currentText.split(' ')[0]
-            $('.buttonz').text(originalText + ' ▼')
-            getAllProducts('High to Lowest')
-          }
-        })
-
-        $('#top').click(function() {
-          $('.buttonz').text('Lowest to Highest ▼')
-          getAllProducts('Lowest to Highest')
-        })
-
-        $('#middle').click(function() {
-          $('.buttonz').text('Newest ▼')
-          getAllProducts('Newest')
-        })
-
-        $('#bottom').click(function() {
-          $('.buttonz').text('Oldest ▼')
-          getAllProducts('Oldest')
-        })
-      })
-        
-      </script>
+     
 </body>
 </html>

@@ -36,7 +36,7 @@
 .product-page {
   background: #ffffff;
   width: 1920px;
-  height: 4163px;
+  height: 3163px;
   position: relative;
   overflow: hidden;
 }
@@ -1349,7 +1349,7 @@
 .label {
   color: var(--main-white, #ffffff);
   text-align: center;
-  font: 500 14px/24px "SfProDisplay-Medium", sans-serif;
+  font: 500 14px/24px "SfProDisplay-Medium", sfpro;
   position: relative;
   cursor: pointer; /* Add this to make it look clickable */
   transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for a smoother effect */
@@ -1359,6 +1359,7 @@
   color: #ffffff; /* Change the text color on hover */
   transform: translateY(-5px); /* Move the button 5 pixels up on hover */
 }
+
 
 
 .j-1-ts-2 {

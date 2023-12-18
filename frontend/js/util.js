@@ -1,3 +1,4 @@
+//MAAM MAY ERROR DITO
 const getUrl = (env)=>{
 
     let url = ""
@@ -27,7 +28,6 @@ function generateCartId() {
             cartId = generateCartId();
             sessionStorage.setItem('cartId', cartId);
         }
-        console.log("WALANG LAMAN"); 
     }
     
     if (cartIdContainerHomepage) {
