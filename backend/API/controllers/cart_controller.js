@@ -47,6 +47,8 @@ const getAllItems = (req, res, next) => {
 
 const addToCart = (req, res, next) => {
     let productstockId = req.body.productstock_id
+
+    // console.log(productstockId)
     let cartId = req.body.cart_id
   
     // Check if productstockId exists in tbl_productstock
@@ -59,22 +61,47 @@ const addToCart = (req, res, next) => {
         })
       } else {
         if (checkResult.length > 0) {
-          const insertQuery = 'INSERT INTO tbl_cart (id, productstock_id) VALUES (?, ?)';
-          const values = [cartId, productstockId];
-  
-          database.db.query(insertQuery, values, (err, rows, result) => {
-            if (err) {
+
+          const retrieveCartProducts = `SELECT COUNT(id) as count FROM tbl_cart WHERE id = '${cartId}' AND productstock_id = ${productstockId}`;
+
+          database.db.query(retrieveCartProducts, (error, rows) => {
+            if (error) {
               res.status(500).json({
                 successful: false,
-                message: err
-              })
-            } else {
-              res.status(200).json({
-                successful: true,
-                message: `Cart ID: ${cartId}, Product ID: ${productstockId} SUCCESS`
+                message: error
               })
             }
+            else{
+              // console.log(`rows[0].count: ${rows[0].count} \n checkResult[0].quantity: ${checkResult[0].quantity}`)
+                if (rows[0].count+1 > checkResult[0].quantity){
+                  res.status(400).json({
+                    successful: false,
+                    message: "Reached stock limit."
+                  })
+                }
+                else{
+                  const insertQuery = 'INSERT INTO tbl_cart (id, productstock_id) VALUES (?, ?)';
+                  const values = [cartId, productstockId];
+          
+                  database.db.query(insertQuery, values, (err, rows, result) => {
+                    if (err) {
+                      res.status(500).json({
+                        successful: false,
+                        message: err
+                      })
+                    } else {
+                      res.status(200).json({
+                        successful: true,
+                        message: `Successfully added product to cart!`
+                      })
+                    }
+                  })
+                }
+            }
           })
+
+
+  
         } else {
           res.status(400).json({
             successful: false,

@@ -4,13 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const apiUrl = "http://localhost:8000/cart/add-to-cart"
     const addToCartButton = document.getElementById('addToCartButton');
 
-    const cartID = sessionStorage.getItem("cartId");
-    const productID = sessionStorage.getItem("selectedStockId");
+    
 
-    console.log(cartID)
-    console.log(productID)
+    
     
     addToCartButton.addEventListener('click', function () {
+
+        const cartID = sessionStorage.getItem("cartId");
+        const productID = sessionStorage.getItem("selectedStockId");
+
+        console.log(cartID)
+        console.log(productID)
         // Request body
         const requestBody = {
             productstock_id: productID,
@@ -32,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Call the api_client function
         api_client(apiUrl, options, function (response) {
             console.log('Response:', response);
+
+            alert(response.message)
             // Handle the response here
         });
     });
