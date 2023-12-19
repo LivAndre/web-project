@@ -453,6 +453,22 @@
   <script src="../js/util.js"></script>
   <script src="../js/newarrivals.js"></script>
   <script src="../js/product.js"></script>
+  <script>
+    getNewArrivals()
+    sessionStorage.removeItem("searchedProduct")
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+    });
+  </script>
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/newarrivals.js"></script>
+  <script src="../js/product.js"></script>
   <script src="../js/confirm_order.js"></script>
   <script>
     getNewArrivals()
