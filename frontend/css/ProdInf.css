@@ -636,6 +636,7 @@
   position: relative;
   transform: translate(0px, -24px);
   overflow: visible;
+  top: 22px;
 }
 .catalog {
   color: #a4a4a4;
@@ -655,6 +656,7 @@
   position: relative;
   transform: translate(0px, -24px);
   overflow: visible;
+  top: 22px;
 }
 .nike {
   color: #a4a4a4;
@@ -674,6 +676,7 @@
   position: relative;
   transform: translate(0px, -24px);
   overflow: visible;
+  top: 22px;
 }
 .new-balance-2002-r {
   color: #000000;
@@ -860,6 +863,18 @@
   top: 0%;
   height: 100%;
   overflow: visible;
+}
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 1px 4px;
+  font-weight: bold;
+  font: 700 10px "SfProDisplay-Bold",  SFPRO;
+
 }
 .subnav {
   background: #000000;

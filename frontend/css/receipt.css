@@ -122,9 +122,27 @@ a:visited {
 .address {
   color: var(--main-black, #000000);
   text-align: left;
-  font: 500 19px/24px "SfProDisplay-Medium", sans-serif;
+  font: 500 14px/24px "SfProDisplay-Medium", sans-serif;
   position: relative;
   align-self: stretch;
+  top: 340px;
+}
+
+.email {
+  color: var(--main-black, #000000);
+  text-align: left;
+  font: 500 14px/24px "SfProDisplay-Medium", sans-serif;
+  position: relative;
+  align-self: stretch;
+  top: 350px;
+}
+.contact_number {
+  color: var(--main-black, #000000);
+  text-align: left;
+  font: 500 14px/24px "SfProDisplay-Medium", sans-serif;
+  position: relative;
+  align-self: stretch;
+  top: 360px;
 }
 .content {
   padding: 24px 160px 72px 160px;
@@ -193,11 +211,13 @@ a:visited {
   color: var(--main-black, #000000);
   text-align: left;
   font: 500 16px/24px "SfProDisplay-Medium", sans-serif;
-  position: relative;
+  position: absolute;
   align-self: stretch;
   width: 319px;
 }
 ._1399 {
+  top: -5px;
+  left: 280px;
   color: var(--main-black, #000000);
   text-align: right;
   font: 500 16px/32px "SfProDisplay-Medium", sans-serif;
@@ -332,24 +352,57 @@ a:visited {
 }
 .address2 {
   color: #545454;
-  text-align: left;
+  text-align: right;
   font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
-  position: relative;
+  position: absolute;
   align-self: stretch;
+  top: 622px;
+  left: 280px;
+}
+.email2 {
+  color: #545454;
+  text-align: right;
+  font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
+  position: absolute;
+  align-self: stretch;
+  top: 660px;
+  left: 280px;
+}
+.contact_number2 {
+  color: #545454;
+  text-align: right;
+  font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
+  position: absolute;
+  align-self: stretch;
+  top: 690px;
+  left: 310px;
 }
 .fname {
-  color: #545454;
+  color: #010101;
   text-align: left;
   font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
   position: relative;
   align-self: stretch;
+  top: 322px;
 }
+
+.fname2 {
+  color: #545454;
+  text-align: right;
+  font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
+  position: absolute;
+  align-self: stretch;
+  top: 580px;
+  left: 310px;
+}
+
 .lname {
   color: #545454;
   text-align: left;
   font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
   position: relative;
   align-self: stretch;
+  top:660px;
 }
 .contact {
   color: #545454;
@@ -357,6 +410,7 @@ a:visited {
   font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
   position: relative;
   align-self: stretch;
+  top:635px;
   
 }
 .detailsfield {
@@ -438,6 +492,7 @@ a:visited {
   font: 500 14px/16px "SfProDisplay-Medium", sans-serif;
   position: relative;
   align-self: stretch;
+  top:680px;
 }
 .Name {
   color: #545454;

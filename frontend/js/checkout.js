@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const deleteButton = document.getElementById('deleteButton')
                 deleteButton.addEventListener('click', function () {
+                  decrementCart();
                 const apiUrl = `http://localhost:8000/cart/remove/${cartID}`
           
                   console.log(cartID)

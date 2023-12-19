@@ -1772,6 +1772,7 @@
   position: relative;
   transform: translate(-24px, 0px);
   overflow: visible;
+  top: 22px;
 }
 .page-numbers {
   display: flex;
@@ -1882,6 +1883,7 @@
   position: relative;
   transform: translate(0px, -24px);
   overflow: visible;
+  top: 22px;
   
 }
 .breadcrumbs {
@@ -1914,6 +1916,7 @@
   position: relative;
   transform: translate(0px, -24px);
   overflow: visible;
+  top: 22px;
 }
 .catalog {
   color: #a4a4a4;
@@ -1934,6 +1937,7 @@
   position: relative;
   transform: translate(0px, -24px);
   overflow: visible;
+  top: 22px;
 }
 .shoes {
   color: #000000;
@@ -2131,6 +2135,30 @@
   top: 0%;
   height: 100%;
   overflow: visible;
+}
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 1px 4px;
+  font-weight: bold;
+  font: 700 10px "SfProDisplay-Bold",  SFPRO;
+
+}
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 1px 4px;
+  font-weight: bold;
+  font: 700 10px "SfProDisplay-Bold",  SFPRO;
+
 }
 .subnav {
   background: #000000;

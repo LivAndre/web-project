@@ -117,13 +117,17 @@ const searchOrderNum = (el)=>{
         api_client(url, content, (response) => {
             if (response.successful == false){
                 alert(response.message)
+                el.value = ""
             }
             else{
                 console.log(`get reference details: ${JSON.stringify(response)}`)
-                alert(response.message)
+                sessionStorage.setItem("orderRefDetails", JSON.stringify(response.data))
+
+                setTimeout(()=>{
+                    window.location.href = "receipt.html"
+                }, 1000)
             }
         })
 
     }
 }
-
