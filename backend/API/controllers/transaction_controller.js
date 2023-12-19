@@ -128,6 +128,7 @@ const viewTransactionByReferenceNumber = (req, res, next) => {
   }
 
 }
+
 const addTransaction = (req, res, next) => {
   const cartId = req.body.cart_id
   const userId = req.body.user_id
@@ -260,7 +261,8 @@ const addTransaction = (req, res, next) => {
 
                 res.status(200).json({
                   successful: true,
-                  message: "Transaction added successfully."
+                  message: "Transaction added successfully.",
+                  reference_number: referenceNumber
                 })
               })
             })

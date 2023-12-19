@@ -50,10 +50,11 @@ function formatNumber(value, isDecimal) {
 
 
 function validateAlphabetical(input) {
-    const regex = /^[a-zA-Z]+$/;
-  
-    return regex.test(input);
+  const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
+
+  return regex.test(input);
 }
+
 
 function validateEmail(email) {
     const regex = /^[a-zA-Z0-9]+@(yahoo\.com|gmail\.com)$/;
