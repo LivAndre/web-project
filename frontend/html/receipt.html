@@ -18,7 +18,7 @@
         cartIdContainer.setAttribute('value',cartId);
       }
 
-      viewOrderSummary()
+      viewOrderReceipt()
     });
   </script>
   <script src="../js/api_client.js"></script>
@@ -45,22 +45,22 @@
           <div class="content">
             <div class="left-side">
               <div class="receipt">Receipt</div>
-              <div class="selected-products" id="order-summary-products">
-                
+              <div class="selected-products" id="order-receipt-products">
+                <div class="details">
+                  <div class="added-product">
+                    <div class="text2">
+                      <div class="adidas-yeezy-700-classic">
+                       Yeezy <br>9 us
+                      </div>
+                      <div class="_1399">35000</div>
+                    </div>
+                    <img class="yeezy-4" src="/frontend/img/550 1.png" />
+                  </div>
+                </div>
           
               </div>
               
-              <div class="details">
-                <div class="added-product">
-                  <div class="text2">
-                    <div class="adidas-yeezy-700-classic">
-                     Yeezy <br>9 us
-                    </div>
-                    <div class="_1399">35000</div>
-                  </div>
-                  <img class="yeezy-4" src="/frontend/img/550 1.png" />
-                </div>
-              </div>
+              
               
               <div class="title-field2">
                 
@@ -74,7 +74,7 @@
               <div class="subtotal">
                 
                 <div class="subtotal2">Subtotal</div>
-                <div class="_32000" id="order-summary-subtotal"></div>
+                <div class="_32000" id="order-receipt-subtotal"></div>
              
               </div>
               <div class="price2">
@@ -84,7 +84,7 @@
               <div class="total">
                 
                 <div class="total2">Total</div>
-                <div class="_32270" id="order-summary-total"></div>
+                <div class="_32270" id="order-receipt-total"></div>
              
               </div>
             </div>
@@ -286,6 +286,7 @@
           </div>
         </div>
       </div>
-      <script src="/frontend/js/cartbadge.js"></script>
+      <!-- <script src="/frontend/js/cartbadge.js"></script> -->
+      <script src="../js/util.js"></script>
 </body>
 </html>

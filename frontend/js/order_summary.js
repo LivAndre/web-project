@@ -56,3 +56,44 @@ const viewOrderSummary = ()=>{
         }
     })
 }
+
+const viewOrderReceipt = ()=>{
+    let orderRefDetails = (sessionStorage.getItem("orderRefDetails") === null ? [] : JSON.parse(sessionStorage.getItem("orderRefDetails")))
+
+    let innerHTML = ""
+    let subtotal = 0
+
+    if (orderRefDetails.length > 0){
+        
+
+        for (let i in orderRefDetails){
+            let el = orderRefDetails[i]
+
+            subtotal += el.price
+
+            innerHTML += `
+            
+            <div class="added-product">
+              <div class="text2">
+                <div class="adidas-yeezy-700-classic">
+                 ${el.product_name}
+                </div>
+                <div class="_1399">${el.price}</div>
+              </div>
+              <img class="yeezy-4" src="${el.main_img}" />
+            </div>
+          
+            `
+        }
+
+        let tax = 0
+        let shipping = 0
+        let total = parseFloat(parseFloat(subtotal) + parseFloat(shipping) + parseFloat(tax))
+        document.getElementById("order-receipt-products").innerHTML = innerHTML
+        document.getElementById("order-receipt-subtotal").innerHTML = formatNumber(subtotal, true)
+        document.getElementById("order-receipt-total").innerHTML = formatNumber(total, true)
+        
+    }
+
+    
+}
