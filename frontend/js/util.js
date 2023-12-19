@@ -15,25 +15,25 @@ const getUrl = (env)=>{
 }
 // GENERATE CART ID REFERENCE
 function generateCartId() {
-    const timestamp = new Date().getTime(); // Get current timestamp
-    const cartId = `cart_${timestamp}`;
-    return cartId;
+    const timestamp = new Date().getTime() // Get current timestamp
+    const cartId = `cart_${timestamp}`
+    return cartId
   }
   window.onload = function () {
-    let cartId = "";
-    const cartIdContainerHomepage = document.getElementById('cartIdContainer');
+    let cartId = ""
+    const cartIdContainerHomepage = document.getElementById('cartIdContainer')
     if (cartIdContainerHomepage.hasAttribute('value')){
-        cartId = cartIdContainerHomepage.getAttribute('value');
+        cartId = cartIdContainerHomepage.getAttribute('value')
         if (!(cartId !== null && cartId.trim() !== '')) {
-            cartId = generateCartId();
-            sessionStorage.setItem('cartId', cartId);
+            cartId = generateCartId()
+            sessionStorage.setItem('cartId', cartId)
         }
     }
     
     if (cartIdContainerHomepage) {
-        cartIdContainerHomepage.setAttribute('value',cartId);
+        cartIdContainerHomepage.setAttribute('value',cartId)
     }
-  };
+  }
 
 function formatNumber(value, isDecimal) {
 
@@ -42,8 +42,8 @@ function formatNumber(value, isDecimal) {
         style: 'decimal', 
         minimumFractionDigits: numberFractions,
         maximumFractionDigits: numberFractions,
-      };
+      }
     
-    const formattedWithOptions = value.toLocaleString('en-US', options);
+    const formattedWithOptions = value.toLocaleString('en-US', options)
     return formattedWithOptions
 }

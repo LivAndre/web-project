@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const cartID = sessionStorage.getItem("cartId");
-    const apiUrl = `http://localhost:8000/cart/getAllProducts?cart_id=${cartID}`;
+    const cartID = sessionStorage.getItem("cartId")
+    const apiUrl = `http://localhost:8000/cart/getAllProducts?cart_id=${cartID}`
 
     // Request body is not needed for a GET request
     // Remove the body property from options
@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: {
             'Content-Type': 'application/json',
         },
-    };
+    }
 
     // Call the api_client function
     api_client(apiUrl, options, function (response) {
-        console.log('Response:', response);
+        console.log('Response:', response)
         if (response.successful == false){
             //TO DO: SHOW ERROR MESSAGE
         }
@@ -98,35 +98,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const deleteButton = document.getElementById('deleteButton')
                 deleteButton.addEventListener('click', function () {
-                const apiUrl = `http://localhost:8000/cart/remove/${cartID}`;
+                const apiUrl = `http://localhost:8000/cart/remove/${cartID}`
           
                   console.log(cartID)
                   // Request body
                   const requestBody = {
                       cart_id: cartID,
-                  };
+                  }
           
                   // Request headers
                   const requestHeaders = {
                       'Content-Type': 'application/json',
-                  };
+                  }
           
                   // Options for the api_client function
                   const options = {
                       method: 'DELETE',
                       headers: requestHeaders,
                       body: JSON.stringify(requestBody),
-                  };
+                  }
           
                   // Call the api_client function
                   api_client(apiUrl, options, function (response) {
-                      console.log('Response:', response);
+                      console.log('Response:', response)
           
                       alert(response.message)
                       // Handle the response here
                       location.reload()
-                  });
-              });
+                  })
+              })
 
             
 
@@ -136,4 +136,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     })
-});
+})
