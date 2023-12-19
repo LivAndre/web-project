@@ -22,10 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert(response.message)
 
             }
-            else{
-              
            
-
+            else{
                 let innerHTML = ``
 
                 let subtotal = 0

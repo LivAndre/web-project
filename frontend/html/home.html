@@ -211,6 +211,13 @@
         </div>
         <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
       
+            <!--kevs--><span
+              ><span class="contact-us-span">Contact Us</span 
+              ></span><!--kevs-->
+          </div></a>
+        </div>
+        <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
+        <!-- <script src="/frontend/js/util.js"></script> -->
         <div id="cartIdContainer" name = "cartId" value =""></div>
           <svg
             class="cart-1"
@@ -447,6 +454,22 @@
       src="/frontend/img/Add a heading (2) 1.png"/>
   </div>
  
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/newarrivals.js"></script>
+  <script src="../js/product.js"></script>
+  <script>
+    getNewArrivals()
+    sessionStorage.removeItem("searchedProduct")
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+    });
+  </script>
   <script src="../js/api_client.js"></script>
   <script src="../js/util.js"></script>
   <script src="../js/newarrivals.js"></script>

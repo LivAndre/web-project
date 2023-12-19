@@ -22,6 +22,7 @@ const viewOrderSummary = ()=>{
             if (response.count == 0){
                 //TO DO: SHOW NO CART ITEMS
             } 
+            
             else{
 
                 let innerHTML = ""
