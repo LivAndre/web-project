@@ -123,10 +123,7 @@ const searchOrderNum = (el)=>{
                 alert(response.message)
             }
         })
+
     }
 }
-
-    
-
-    
 

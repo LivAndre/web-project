@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing BSG</title>
+    <link rel="stylesheet" href="/frontend/css/receipt.css">
+</head>
+<body>
+  <div id="cartIdContainer" name = "cartId" value =""></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
+
+      viewOrderSummary()
+    });
+  </script>
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/order_summary.js"></script>
+    <div class="proccessing-step-3">
+        <div class="hero">
+          <a href="javascript:history.back()"><div class="back">Back</div></a>
+          <svg
+            class="arrow-elbow-down-left"
+            width="21"
+            height="20"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.4063 2.5V13.75C16.4063 13.9158 16.3371 14.0747 16.2141 14.1919C16.091 14.3092 15.9241 14.375 15.75 14.375H5.52155L8.33933 17.0578C8.4003 17.1159 8.44866 17.1848 8.48166 17.2607C8.51466 17.3366 8.53164 17.4179 8.53164 17.5C8.53164 17.5821 8.51466 17.6634 8.48166 17.7393C8.44866 17.8152 8.4003 17.8841 8.33933 17.9422C8.27835 18.0003 8.20597 18.0463 8.1263 18.0777C8.04664 18.1092 7.96126 18.1253 7.87503 18.1253C7.7888 18.1253 7.70342 18.1092 7.62375 18.0777C7.54409 18.0463 7.4717 18.0003 7.41073 17.9422L3.47323 14.1922C3.41222 14.1341 3.36381 14.0652 3.33079 13.9893C3.29776 13.9135 3.28076 13.8321 3.28076 13.75C3.28076 13.6679 3.29776 13.5865 3.33079 13.5107C3.36381 13.4348 3.41222 13.3659 3.47323 13.3078L7.41073 9.55781C7.53387 9.44054 7.70088 9.37465 7.87503 9.37465C8.04917 9.37465 8.21619 9.44054 8.33933 9.55781C8.46246 9.67509 8.53164 9.83415 8.53164 10C8.53164 10.1659 8.46246 10.3249 8.33933 10.4422L5.52155 13.125H15.0938V2.5C15.0938 2.33424 15.1629 2.17527 15.286 2.05806C15.4091 1.94085 15.576 1.875 15.75 1.875C15.9241 1.875 16.091 1.94085 16.2141 2.05806C16.3371 2.17527 16.4063 2.33424 16.4063 2.5Z"
+              fill="black"
+            />
+          </svg>
+      
+         
+          <div class="content">
+            <div class="left-side">
+              <div class="receipt">Receipt</div>
+              <div class="selected-products" id="order-summary-products">
+                
+          
+              </div>
+              
+              <div class="details">
+                <div class="added-product">
+                  <div class="text2">
+                    <div class="adidas-yeezy-700-classic">
+                     Yeezy <br>9 us
+                    </div>
+                    <div class="_1399">35000</div>
+                  </div>
+                  <img class="yeezy-4" src="/frontend/img/550 1.png" />
+                </div>
+              </div>
+              
+              <div class="title-field2">
+                
+                <div class="shipment-method"><b>Shipment method</b></div>
+                <div class="field2">
+            <br>
+                  <div class="jnt-express">JNT Express</div>
+                  
+                </div>
+              </div>
+              <div class="subtotal">
+                
+                <div class="subtotal2">Subtotal</div>
+                <div class="_32000" id="order-summary-subtotal"></div>
+             
+              </div>
+              <div class="price2">
+                
+              </div>
+              
+              <div class="total">
+                
+                <div class="total2">Total</div>
+                <div class="_32270" id="order-summary-total"></div>
+             
+              </div>
+            </div>
+          
+          </div>
+        </div>
+        
+        <div class="footer">
+          <div class="info">
+            <div class="logo-text">
+              <div
+                class="beyond-shoe-game-manila-where-every-step-tells-your-story-elevate-your-style-game-with-our-exclusive-sneaker-collection-more-than-a-shoe-it-s-a-statement-step-into-the-extraordinary-explore-beyond-ordinary-footwear-with-us"
+              >
+                Beyond Shoe Game Manila: Where Every Step Tells Your Story. Elevate
+                your style game with our exclusive sneaker collection. More than a
+                shoe, it&#039;s a statement. Step into the extraordinary – explore
+                beyond ordinary footwear with us.
+              </div>
+            </div>
+          </div>
+          <div class="footer-navigation">
+            <div class="section">
+              <div class="socials">Socials</div>
+              <div
+                class="bonus-program-gift-cards-payments-service-contracts-non-cash-account-payment"
+              >
+                Bonus program<br />Gift cards<br />Payments<br />Service contracts<br />Non-cash
+                account<br />Payment
+              </div>
+            </div>
+            <div class="section">
+              <div class="assistance-to-the-buyer">Assistance to the buyer</div>
+              <div
+                class="find-an-order-terms-of-delivery-exchange-and-return-of-goods-guarantee-frequently-asked-questions-terms-of-use-of-the-site"
+              >
+                Find an order<br />Terms of delivery<br />Exchange and return of
+                goods<br />Guarantee<br />Frequently asked questions<br />Terms of use
+                of the site
+              </div>
+            </div>
+          </div>
+          <div class="social-icons">
+            <svg
+              class="icon-16-px-twitter"
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_735_1291)">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.0811 2.91193C15.4932 3.17965 14.8602 3.3607 14.1962 3.4416C14.8743 3.02556 15.3945 2.36588 15.6397 1.58004C15.0048 1.96525 14.3033 2.2455 13.5539 2.39573C12.9566 1.74183 12.1029 1.3335 11.1581 1.3335C9.34654 1.3335 7.87679 2.84066 7.87679 4.69933C7.87679 4.9632 7.90497 5.21938 7.96131 5.46592C5.23313 5.32531 2.81487 3.98668 1.19486 1.94792C0.912186 2.44677 0.750651 3.02556 0.750651 3.64191C0.750651 4.80912 1.3301 5.83958 2.21101 6.4434C1.67383 6.42703 1.16669 6.27391 0.723419 6.02352V6.06493C0.723419 7.69632 1.85507 9.0571 3.35769 9.36527C3.08252 9.44424 2.79233 9.48373 2.49275 9.48373C2.28144 9.48373 2.07483 9.46351 1.8748 9.42402C2.29271 10.7607 3.50419 11.7344 4.94106 11.7604C3.81786 12.6637 2.40165 13.202 0.864288 13.202C0.599453 13.202 0.337438 13.1866 0.0810547 13.1558C1.53389 14.1092 3.26002 14.6668 5.11293 14.6668C11.1515 14.6668 14.4526 9.53862 14.4526 5.09033C14.4526 4.94394 14.4498 4.79756 14.4441 4.65407C15.0856 4.17929 15.6425 3.58702 16.0811 2.91193Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_735_1291">
+                  <rect
+                    width="16"
+                    height="16"
+                    fill="white"
+                    transform="translate(0.0810547)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+      
+            <svg
+              class="icon-16-px-facebook"
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.26193 3.81794C9.26193 3.98169 9.26193 4.51541 9.26193 5.27366H11.8689L11.5863 7.59763H9.26193C9.26193 11.1816 9.26193 15.9843 9.26193 15.9843H6.17675C6.17675 15.9843 6.17675 11.2452 6.17675 7.59763H4.56915V5.27366H6.17675C6.17675 4.35204 6.17675 3.69669 6.17675 3.51422C6.17675 2.64485 6.11125 2.23235 6.48065 1.55866C6.85025 0.885005 7.89275 -0.00543266 9.69584 0.0160048C11.4994 0.0382236 12.2596 0.211724 12.2596 0.211724L11.8689 2.6885C11.8689 2.6885 10.7173 2.38441 10.152 2.49279C9.58746 2.60119 9.26193 2.94894 9.26193 3.81794Z"
+                fill="white"
+              />
+            </svg>
+      
+            <svg
+              class="icon-16-px-tiktok"
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.6314 3.358C11.972 2.59144 11.6266 1.60104 11.6541 0.592723L9.19024 0.533203C9.19024 0.533203 9.19024 0.638323 9.19024 0.780083V10.6602C9.22464 13.786 4.28608 13.7102 4.6768 10.2551C4.91568 8.88136 6.39184 8.03592 7.70352 8.51384V5.99992C4.84784 5.50264 2.1416 7.7756 2.17008 10.6713C2.41968 16.9513 11.427 16.9521 11.677 10.6713C11.6141 10.4465 11.6493 6.26152 11.6403 5.90856C12.7606 6.60568 14.0642 6.95416 15.3843 6.90952V4.3132C14.1638 4.3132 13.2325 3.98872 12.6314 3.358Z"
+                fill="white"
+              />
+            </svg>
+      
+            <svg
+              class="icon-16-px-instagram"
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_735_1294)">
+                <path
+                  d="M8.08103 14.6666C6.65154 14.6666 5.62285 14.6659 4.82083 14.5881C4.028 14.5112 3.52083 14.3636 3.11608 14.1092C2.65348 13.8186 2.26232 13.4274 1.97164 12.9649C1.7174 12.5601 1.56962 12.0529 1.49285 11.2601C1.41507 10.4581 1.41437 9.42941 1.41437 7.99992C1.41437 6.57042 1.41507 5.54174 1.49285 4.73972C1.56962 3.94689 1.7174 3.43972 1.97164 3.03497C2.2623 2.57236 2.65347 2.18119 3.11608 1.89052C3.52083 1.63628 4.028 1.4885 4.82083 1.41174C5.62275 1.33396 6.65144 1.33325 8.08103 1.33325C9.51053 1.33325 10.5392 1.33396 11.3412 1.41174C12.1341 1.4885 12.6412 1.63628 13.046 1.89052C13.5086 2.1812 13.8997 2.57237 14.1903 3.03497C14.4447 3.43972 14.5923 3.94689 14.6692 4.73972C14.747 5.54174 14.7477 6.57042 14.7477 7.99992C14.7477 9.42941 14.747 10.4581 14.6692 11.2601C14.5923 12.0529 14.4447 12.5601 14.1903 12.9649C13.8997 13.4274 13.5085 13.8186 13.046 14.1092C12.6412 14.3636 12.1341 14.5112 11.3412 14.5881C10.5392 14.6659 9.51053 14.6666 8.08103 14.6666Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8.08103 11.3333C9.55379 11.3333 10.7477 10.1394 10.7477 8.66667C10.7477 7.19391 9.55379 6 8.08103 6C6.60828 6 5.41437 7.19391 5.41437 8.66667C5.41437 10.1394 6.60828 11.3333 8.08103 11.3333Z"
+                  fill="white"
+                  stroke="black"
+                  stroke-width="2"
+                />
+                <path
+                  d="M11.3311 5.5C11.7453 5.5 12.0811 5.16421 12.0811 4.75C12.0811 4.33579 11.7453 4 11.3311 4C10.9168 4 10.5811 4.33579 10.5811 4.75C10.5811 5.16421 10.9168 5.5 11.3311 5.5Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_735_1294">
+                  <rect
+                    width="16"
+                    height="16"
+                    fill="white"
+                    transform="translate(0.0810547)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <a href="/frontend/html/home.html"> <img class="beyond-1" src="/frontend/img/BEYOND 1.png" /></a>
+        </div>
+        <div class="header">
+          <div class="header-top">
+           <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
+          <script src="../js/api_client.js"></script>
+          <script src="../js/util.js"></script>
+          <script src="../js/product.js"></script>
+            <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
+            <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
+            <div class="navigation">
+              <a href="/frontend/html/home.html"> <div class="home">Home</div></a>
+              
+              <a href="/frontend/html/about.html"> <div class="about">About</div></a>
+              <a href="/frontend/html/socials.html"><div class="contact-us">
+                <span
+                    ><span class="contact-us-span">Contact Us</span 
+                    ></span>
+                </div></a>
+            </div>
+            <a href="/frontend/html/cart.html" class="cart-container">
+              <div class="icon-32-px-cart">
+                <div id="cartIdContainer" name="cartId" value=""></div>
+                <svg
+                  class="cart-1"
+                  width="32"
+                  height="33"
+                  viewBox="0 0 32 33"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                d="M3 5.91676H7L10 22.9168H26M10 17.5834H25.59C25.7056 17.5835 25.8177 17.5435 25.9072 17.4702C25.9966 17.397 26.0579 17.2949 26.0806 17.1816L27.8806 8.18156C27.8951 8.10898 27.8934 8.03409 27.8755 7.96229C27.8575 7.89048 27.8239 7.82355 27.7769 7.76633C27.73 7.7091 27.6709 7.66302 27.604 7.63139C27.5371 7.59976 27.464 7.58338 27.39 7.58343H8M12 26.9168C12 27.469 11.5523 27.9168 11 27.9168C10.4477 27.9168 10 27.469 10 26.9168C10 26.3645 10.4477 25.9168 11 25.9168C11.5523 25.9168 12 26.3645 12 26.9168ZM26 26.9168C26 27.469 25.5523 27.9168 25 27.9168C24.4477 27.9168 24 27.469 24 26.9168C24 26.3645 24.4477 25.9168 25 25.9168C25.5523 25.9168 26 26.3645 26 26.9168Z"
+                stroke="#FF0000"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+                </svg>
+                <div class="badge" id="cartBadge">0</div>
+              </div>
+            </a>
+          
+          </div>
+          <div class="subnav">
+            <div class="nav-category">
+              <a href="/frontend/html/ProdPage.html"><div class="phones">Shoes</div></a>
+            </div>
+            <div class="devider"></div>
+            <div class="nav-category">
+              <a href="/frontend/html/apparelsPage.html"><div class="computers">Apparels</div></a>
+            </div>
+            <div class="devider"></div>
+            <div class="nav-category">
+              <a href="/frontend/html/essentialsPage.html"> <div class="smart-watches">Essentials</div></a>
+            </div>
+            
+            <div class="devider"></div>
+            <div class="nav-category">
+              <a href="/frontend/html/home.html#new-arrivals"> <div class="headphones">New Arrivals</div></a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <script src="/frontend/js/cartbadge.js"></script>
+</body>
+</html>
