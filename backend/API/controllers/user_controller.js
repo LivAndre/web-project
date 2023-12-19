@@ -118,7 +118,8 @@ const addUser = (req, res, next) => {
               } else {
                 res.status(200).json({
                   successful: true,
-                  message: "Successfully added new user!"
+                  message: "Successfully added new user!",
+                  id: rows.insertId
                 })
               }
             })

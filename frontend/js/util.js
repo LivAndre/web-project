@@ -1,4 +1,4 @@
-//MAAM MAY ERROR DITO
+
 const getUrl = (env)=>{
 
     let url = ""
@@ -47,3 +47,32 @@ function formatNumber(value, isDecimal) {
     const formattedWithOptions = value.toLocaleString('en-US', options)
     return formattedWithOptions
 }
+
+
+function validateAlphabetical(input) {
+    const regex = /^[a-zA-Z]+$/;
+  
+    return regex.test(input);
+}
+
+function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9]+@(yahoo\.com|gmail\.com)$/;
+    return regex.test(email);
+}
+
+  
+  function validateCity(input) {
+    const regex = /\bcity\b/i;
+  
+    return regex.test(input);
+  }
+
+
+  function validateNumber(number) {
+   
+    const regex = /^0[0-9]{10}$/;
+  
+ 
+    return regex.test(number);
+  }
+  

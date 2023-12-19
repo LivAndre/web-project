@@ -53,7 +53,7 @@ const getAllItems = (req, res, next) => {
     } else {
       return res.status(404).json({
         successful: true,
-        message: `No Items in Cart: ${cartId}`,
+        message: `No Items in Cart`,
         count: checkResult.length,
         items: []
       });

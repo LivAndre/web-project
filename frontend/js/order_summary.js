@@ -46,13 +46,12 @@ const viewOrderSummary = ()=>{
                     `
                 }
 
-                let tax = parseFloat(150)
-                let shipping = parseFloat(120)
+                let tax = parseFloat(0)
+                let shipping = parseFloat(0)
                 let total = parseFloat(subtotal + tax + shipping)
                 document.getElementById("order-summary-products").innerHTML = innerHTML
                 document.getElementById("order-summary-subtotal").innerHTML = "₱"+formatNumber(subtotal, true)
                 document.getElementById("order-summary-total").innerHTML = "₱"+formatNumber(total, true)
-
             }
         }
     })

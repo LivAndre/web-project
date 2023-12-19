@@ -133,10 +133,17 @@ const addTransaction = (req, res, next) => {
   const userId = req.body.user_id
   const referenceNumber = generateReferenceNumber()
 
-  if (!cartId || !userId) {
+  if (!cartId) {
     res.status(404).json({
       successful: false,
-      message: "One or more transaction details are missing."
+      message: "Cart ID is missing."
+    })
+    return
+  }
+  else if (!userId) {
+    res.status(404).json({
+      successful: false,
+      message: "User ID is missing."
     })
     return
   } else {

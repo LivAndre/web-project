@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const cartID = sessionStorage.getItem("cartId")
+    
     const apiUrl = `http://localhost:8000/cart/getAllProducts?cart_id=${cartID}`
 
     // Request body is not needed for a GET request
@@ -88,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     `
                 }
 
-                let tax = parseFloat(150)
-                let shipping = parseFloat(120)
+                let tax = parseFloat(0)
+                let shipping = parseFloat(0)
                 let total = parseFloat(subtotal + tax + shipping)
                 document.getElementById("shopping-cart-items").innerHTML = innerHTML
                 document.getElementById("cart-subtotal").innerHTML = "₱"+formatNumber(subtotal, true)
