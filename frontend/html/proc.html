@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Processing BSG</title>
     <link rel="stylesheet" href="../css/proc.css">
 </head>
 <body>
@@ -17,11 +17,16 @@
       if (cartId) {
         cartIdContainer.setAttribute('value',cartId);
       }
+
+      viewOrderSummary()
     });
   </script>
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/order_summary.js"></script>
     <div class="proccessing-step-3">
         <div class="hero">
-          <div class="back">Back</div>
+          <a href="javascript:history.back()"><div class="back">Back</div></a>
           <svg
             class="arrow-elbow-down-left"
             width="21"
@@ -36,98 +41,17 @@
             />
           </svg>
       
-          <!-- <div class="steps">
-            <div class="step-4">
-              <div class="icon-24-px-payment">
-                <svg
-                  class="group"
-                  width="12"
-                  height="18"
-                  viewBox="0 0 12 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.2229 7.98007C11.0473 7.84184 9.49689 6.13449 8.61893 5.33873C8.61519 5.33499 8.61519 5.33499 8.61519 5.33126V1.65504C8.61519 0.743462 7.87173 0 6.96015 0H1.53923C0.691158 0 0 0.694894 0 1.53923V10.1619C0 11.0735 0.743462 11.8169 1.65504 11.8169H3.23163H3.63138C3.69863 11.8169 3.75467 11.7572 3.7472 11.6899L3.66127 10.9577C3.6538 10.8979 3.60523 10.8568 3.54545 10.8568H3.39975H3.31009C3.24658 10.8568 3.19427 10.8045 3.19427 10.741V0.945205C3.19427 0.881694 3.24658 0.82939 3.31009 0.82939H6.97136C7.34122 0.82939 7.64384 1.132 7.64384 1.50187V9.50436V10.2927C7.64384 10.5467 7.46824 10.7634 7.23288 10.8306C7.22914 10.8306 7.22914 10.8306 7.2254 10.8306C6.82565 10.6139 6.35492 9.68742 6.28394 9.54172C6.27646 9.53051 6.27273 9.51557 6.27273 9.50436C6.24658 9.26899 5.98132 6.99004 4.76712 6.99004C4.7335 6.99004 4.69988 6.99004 4.66625 6.99377C4.66625 6.99377 3.69489 7.07596 4.49813 9.84433C4.49813 9.8518 4.50187 9.85554 4.50187 9.86301L4.85679 12.9303C4.85679 12.934 4.85679 12.9377 4.86052 12.9452C4.89041 13.061 5.2939 14.6264 6.33624 15.736C6.35492 15.7584 6.36613 15.7846 6.36613 15.8144V16.0797C6.36613 16.0872 6.36239 16.0909 6.35492 16.0909H6.26152C6.03362 16.0909 5.84682 16.2777 5.84682 16.5056V17.5853C5.84682 17.8132 6.03362 18 6.26152 18H10.6588C10.8867 18 11.0735 17.8132 11.0735 17.5853V16.5131C11.0735 16.2852 10.8867 16.0984 10.6588 16.0984C10.6513 16.0984 10.6476 16.0946 10.6476 16.0872C10.7933 14.7347 11.3163 10.1096 11.5965 9.7472C11.604 9.73599 11.6115 9.72478 11.6152 9.70984C11.6638 9.54172 11.9066 8.51432 11.2229 7.98007ZM1.72976 10.7484C1.72976 10.8082 1.6812 10.8531 1.62516 10.8531C1.25903 10.8531 0.960149 10.5542 0.960149 10.188V1.4944C0.960149 1.12827 1.25903 0.82939 1.62516 0.82939C1.68493 0.82939 1.72976 0.877958 1.72976 0.933997V10.7484Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-              <div class="text">
-                <div class="step-2"></div>
-                <div class="address">Payment</div>
-              </div>
-            </div>
-          </div> -->
+         
           <div class="content">
             <div class="left-side">
               <div class="summary">Summary</div>
-              <div class="selected-products">
-                <div class="added-product">
-                  <div class="text2">
-                    <div class="adidas-yeezy-700-classic">
-                      Adidas YEEZY 700 “Classic”
-                    </div>
-                    <div class="_1399">₱11000</div>
-                  </div>
-                  <img class="yeezy-4" src="/frontend/img/yeezy 1.png" />
-                </div>
-                <div class="added-product">
-                  <div class="product-image"></div>
-                  <div class="text2">
-                    <div class="jordan-4-2018-white-cement">
-                      Jordan 4 2018 White Cement
-                    </div>
-                    <div class="_1399">₱11000</div>
-                  </div>
-                  <img class="j-4-4" src="/frontend/img/j4 1.png" />
-                </div>
-                <div class="added-product">
-                  <div class="text2">
-                    <div class="new-balance-2002-r-gray-m-2002-rvc">
-                      New Balance 2002R Gray M2002RVC
-                    </div>
-                    <div class="_1399">₱11000</div>
-                  </div>
-                  <img class="_2002-r-5" src="/frontend/img/2002r 2.png" />
-                </div>
+              <div class="selected-products" id="order-summary-products">
+                
               </div>
               <div class="details">
-                <!-- <div class="price-info">
-                  <div class="taxes">
-                    <div class="price"></div>
-                  </div>
-                </div> -->
+                
               </div>
-              <!-- <div class="shipment-info">
-                <div class="title-field">
-                  <div class="fname">First Name</div>
-                  <div class="namefield">
-                    <input type="text" name="fname" id="fname">
-                  </div>
-                  <div class="lname">Last Name</div>
-                  <div class="namefield">
-                    <input type="text" name="lname" id="lname">
-                  </div>
-                </div>
-                <div class="contact-field">
-                  <div class="address2">Address</div>
-                  <div class="contactfield">
-                   <input type="text" name="address" id="address" class="">
-                  </div>
-                  <div class="e-mail">E-Mail</div>
-                  <div class="contactfield">
-                    <input type="text" name="e-mail" id="e-mail">
-                  </div>
-                 
-                </div>
-            <div class="contact-field2">
-            <div class="contact">Contact Number</div>
-                  <div class="field">
-                    <input type="text" name="contact" id="contact">
-                  </div>
-                </div>
-              </div> -->
+              
               <div class="title-field2">
                 
                 <div class="shipment-method"><b>Shipment method</b></div>
@@ -140,21 +64,27 @@
               <div class="subtotal">
                 
                 <div class="subtotal2">Subtotal</div>
-                <div class="_32000">₱32000</div>
+                <div class="_32000" id="order-summary-subtotal"></div>
               </div>
               <div class="price2">
                 <div class="text3">
                   <div class="estimated-shipping-handling">
-                    Estimated shipping &amp; Handling
+                    Estimated Tax
                   </div>
-                  <div class="_140">₱140</div>
+                  <div class="_140">₱150.00</div>
+                </div>
+                <div class="text3">
+                  <div class="estimated-shipping-handling">
+                    Estimated Shipping &amp; Handling
+                  </div>
+                  <div class="_140">₱120.00</div>
                 </div>
               </div>
               
               <div class="total">
                 
                 <div class="total2">Total</div>
-                <div class="_32270">₱32270</div>
+                <div class="_32270" id="order-summary-total"></div>
               </div>
             </div>
             <div class="right-side">
@@ -191,32 +121,7 @@
                 </div>
                 
               </div>
-              <!-- same as billing checkbox -->
-              <!-- <div class="checbox-field">
-                <svg
-                  class="done-round"
-                  width="17"
-                  height="16"
-                  viewBox="0 0 17 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    y="0.166748"
-                    width="16.3333"
-                    height="15.6667"
-                    rx="3"
-                    fill="black"
-                  />
-                  <path
-                    d="M6 8.83341L6.56642 9.25823C6.99511 9.57975 7.60105 9.50621 7.94038 9.09147L10.3333 6.16675"
-                    stroke="white"
-                    stroke-linecap="round"
-                  />
-                </svg>
-      
-                <div class="apple-110">Same as billing address</div>
-              </div> -->
+              
               <div class="buttons">
                 <a href="/frontend/html/cart.html">  <div class="button2">
                  <div class="label2">Back</div>
@@ -365,38 +270,22 @@
         <div class="header">
           <div class="header-top">
            <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
-            <input type="text" name="text" placeholder="Search BSG'" class="input">
+          <script src="../js/api_client.js"></script>
+          <script src="../js/util.js"></script>
+          <script src="../js/product.js"></script>
+            <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
             <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
             <div class="navigation">
               <a href="/frontend/html/home.html"> <div class="home">Home</div></a>
               
               <a href="/frontend/html/about.html"> <div class="about">About</div></a>
-              <div class="contact-us">
+              <a href="/frontend/html/socials.html"><div class="contact-us">
                 <span
-                  ><span class="contact-us-span">Contact Us</span
-                  ></span
-                >
-              </div>
+                    ><span class="contact-us-span">Contact Us</span 
+                    ></span>
+                </div></a>
             </div>
-            <!-- remove favorites -->
-            <!-- <div class="icons">
-              <svg
-                class="icon-32-px-favorites"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
-                  stroke="#FF0000"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div> -->
+           
            <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
               <svg
                 class="cart-1"
@@ -428,10 +317,7 @@
             <div class="nav-category">
               <a href="/frontend/html/essentialsPage.html"> <div class="smart-watches">Essentials</div></a>
             </div>
-            <!-- <div class="devider"></div>
-            <div class="nav-category">
-              <div class="cameras">Kits</div>
-            </div> -->
+            
             <div class="devider"></div>
             <div class="nav-category">
               <a href="/frontend/html/home.html#new-arrivals"> <div class="headphones">New Arrivals</div></a>

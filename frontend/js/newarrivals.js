@@ -1,4 +1,4 @@
-const getAllProducts = () => {
+const getNewArrivals = () => {
     let url = `${getUrl("DEV_URL")}/products/view/newarrivals`;
   
    
@@ -14,7 +14,7 @@ const getAllProducts = () => {
         if (response.successful == true){
            
             
-            populateAllProducts(response.data)
+            populateNewArrivalProducts(response.data)
             
         }
         else{
@@ -24,7 +24,7 @@ const getAllProducts = () => {
 }
 
 
-const populateAllProducts = (data)=>{
+const populateNewArrivalProducts = (data)=>{
 
     
 
@@ -69,12 +69,4 @@ const populateAllProducts = (data)=>{
     }
 
     document.getElementById("product-list").innerHTML = innerHTML
-}
-
-const redirectToProdDetails = (id)=>{
-    sessionStorage.setItem("selectedProdId", id)
-
-    setTimeout(()=>{
-        window.location.href = "ProdInf.html"
-    }, 2000)
 }

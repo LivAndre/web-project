@@ -447,12 +447,24 @@
   flex: 1;
   min-width: 136px;
   position: relative;
+  transform: translateY(0); /* Initial position */
+  transition: transform 0.3s ease; /* Add transition for a smoother effect */
+}
+.button:hover {
+  transform: translateY(-5px); /* Move the button 5 pixels up on hover */
 }
 .label {
   color: var(--main-white, #ffffff);
   text-align: center;
   font: 500 16px/24px "SfProDisplay-Medium", SFPROMED;
   position: relative;
+  cursor: pointer; /* Add this to make it look clickable */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for a smoother effect */
+}
+
+.label:hover {
+  color: #ffffff; /* Change the text color on hover */
+  transform: translateY(-5px); /* Move the button 5 pixels up on hover */
 }
 .icons {
   display: flex;

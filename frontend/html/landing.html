@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome, Sneakerhead</title>
     <link rel="stylesheet" href="../css/landing.css">
 </head>
 <body>
@@ -22,26 +22,24 @@
     <div class="landing">
         <div class="hero">
           <div class="navbar">
-            <input type="text" name="text" placeholder="Search BSG'" class="input" onkeydown="search(this)">
+        <script src="../js/api_client.js"></script>
+        <script src="../js/util.js"></script>
+        <script src="../js/product.js"></script>
+        <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
         <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
             <div class="nav-items">
               <div class="links">
                 <div class="link-item">
-                  <div class="home">Home</div>
+                  <a href="/frontend/html/home.html"><div class="home">Home</div></a>
                 </div>
                 <div class="link-item">
-                  <div class="about">About</div>
+                  <a href="/frontend/html/about.html"><div class="about">About</div></a>
                 </div>
                 <div class="link-item">
-                  <div class="contact">Contact</div>
-                </div>
-                <div class="link-item">
-                  <div class="pricing">Pricing</div>
+                  <a href="/frontend/html/socials.html"> <div class="contact">Contact</div></a>
                 </div>
               </div>
-              <div class="button">
-                <div class="socials">SOCIALS</div>
-              </div>
+            
             </div>
           </div>
           <div class="frame-11">
@@ -66,11 +64,11 @@
             </div>
           </div>
         </div>
-        <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /><img
+        <a href="/frontend/html/home.html"><img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /><img
           class="j-1-1"
-          src="/frontend/img/j1 1.png"
+          src="/frontend/img/j1 1.png" 
         />
-      </div>
+      </div></a>
       
     
 </body>

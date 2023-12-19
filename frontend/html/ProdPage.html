@@ -5,23 +5,12 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Selections BSG</title>
     <link rel="stylesheet" href="../css/ProdPage.css">
 </head>
 
 <body>
   <div id="cartIdContainer" name = "cartId" value =""></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartIdContainer = document.getElementById('cartIdContainer');
-      const cartId = sessionStorage.getItem('cartId');
-
-      if (cartId) {
-        cartIdContainer.setAttribute('value',cartId);
-      }
-    });
-  </script>
     <div class="product-page">
         <div class="hero">
           <div class="navbar"></div>
@@ -209,146 +198,6 @@
         </div>
         <div class="content">
           <div class="filters">
-            <!-- price column -->
-            <!-- <div class="price">
-              <div class="dropdown">
-                <div class="title">Price</div>
-                <svg
-                  class="expand-down"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 15L12 9L18 15" stroke="black" stroke-width="2" />
-                </svg>
-                
-      
-                <div class="line"></div>
-              </div>
-              <div class="price-filter"> -->
-                <!-- <div class="from-to">
-                  <div class="content2">
-                    <div class="text">
-                      <div class="from">
-                        <span><span class="from-span">From</span></span>
-                
-                      </div>
-                      <br>
-                      <div class="to">
-                        <span><span class="from-span">To</span></span></div>
-                    </div>
-                    
-                      <div class="info-1">
-                        
-                     <input type="text" id="name" name="name" placeholder="1500" maxlength="6" size="11">
-                      </div>
-                      
-                      <div class="line-16"></div>
-                      <div class="to"> 
-                        
-                    </div>
-                      <div class="info-2">
-                      <input type="text" id="name" name="name2" placeholder="1500" maxlength="6" size="11">
-                      </div>
-                    
-                  </div>
-                </div> -->
-                <!-- scroll bar -->
-                <!-- <div class="scroll">
-                  <div class="rectangle-6"></div>
-                  <div class="ellipse-66"></div>
-                  <div class="rectangle-7"></div>
-                  <div class="ellipse-67"></div>
-                </div> -->
-              <!-- </div>
-            </div> -->
-            <div class="brand">
-              <div class="dropdown">
-                <div class="title">Brand</div>
-                <svg
-                  class="expand-down2"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M6 15L12 9L18 15" stroke="black" stroke-width="2" />
-                </svg>
-      
-                <div class="line"></div>
-              </div>
-              <label class="container">
-                <input type="checkbox" checked="checked">
-                <div class="checkmark"></div>
-                <span class="checkbox-text">Nike</span>
-              </label>
-              <label class="container">
-                <input type="checkbox" checked="checked">
-                <div class="checkmark"></div>
-                <span class="checkbox-text">Adidas</span>
-              </label>
-              <label class="container">
-                <input type="checkbox" checked="checked">
-                <div class="checkmark"></div>
-                <span class="checkbox-text">New Balance</span>
-              </label>
-              <label class="container">
-                <input type="checkbox" checked="checked">
-                <div class="checkmark"></div>
-                <span class="checkbox-text">Converse</span>
-              </label>
-              <label class="container">
-                <input type="checkbox" checked="checked">
-                <div class="checkmark"></div>
-                <span class="checkbox-text">Reebok</span>
-              </label>
-            </div>
-            <div class="sizing">
-              <div class="dropdown">
-                <div class="title">Sizes</div>
-                <svg
-                  class="expand-down3"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M6 15L12 9L18 15" stroke="black" stroke-width="2" />
-                </svg>
-      
-                <div class="line"></div>
-              </div>
-              <div class="content4">
-                <label class="container">
-                  <input type="checkbox" checked="checked">
-                  <div class="checkmark"></div>
-                  <span class="checkbox-text">7</span>
-                </label>
-                <label class="container">
-                  <input type="checkbox" checked="checked">
-                  <div class="checkmark"></div>
-                  <span class="checkbox-text">8</span>
-                </label>
-                <label class="container">
-                  <input type="checkbox" checked="checked">
-                  <div class="checkmark"></div>
-                  <span class="checkbox-text">9</span>
-                </label>
-                <label class="container">
-                  <input type="checkbox" checked="checked">
-                  <div class="checkmark"></div>
-                  <span class="checkbox-text">10</span>
-                </label>
-                <label class="container">
-                  <input type="checkbox" checked="checked">
-                  <div class="checkmark"></div>
-                  <span class="checkbox-text">11</span>
-                </label>
-              </div>
-            </div>
           </div>
           <div class="product">
             <div class="products">
@@ -379,49 +228,7 @@
               
              
             </div>
-            <!-- <div class="pagination">
-              <svg
-                class="icon-24-px-arrow"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M15 18L9 12L15 6" stroke="black" />
-              </svg>
-      
-              <div class="page-numbers">
-                <div class="_6">
-                  <div class="_1">1</div>
-                </div>
-                <div class="_2">
-                  <div class="_12">2</div>
-                </div>
-                <div class="_3">
-                  <div class="_12">3</div>
-                </div>
-                <div class="">
-                  <div class="ellipse-68"></div>
-                  <div class="ellipse-69"></div>
-                  <div class="ellipse-71"></div>
-                  <div class="ellipse-70"></div>
-                </div>
-                <div class="_5">
-                  <div class="_12">12</div>
-                </div>
-              </div>
-              <svg
-                class="icon-24-px-arrow2"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9 6L15 12L9 18" stroke="black" />
-              </svg>
-            </div> -->
+        
           </div>
         </div>
         <div class="breadcrumbs">
@@ -456,40 +263,20 @@
           <div class="header-top">
             <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
 
-            <form id="searchForm" action="searchPage.html">
-              <input type="text" name="searchProduct" placeholder="Search BSG" class="input">
-            </form>
+            <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
             
             <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
 
             <div class="navigation">
               <a href="/frontend/html/home.html"><div class="home">Home</div></a>
               <a href="/frontend/html/about.html"><div class="about">About</div></a>
-              <div class="contact-us">
-                <!--kevs--><span
-                  ><span class="contact-us-span">Contact Us</span
-                  ></span><!--kevs-->
-              </div>
+              <a href="/frontend/html/socials.html"><div class="contact-us">
+                <span
+                    ><span class="contact-us-span">Contact Us</span 
+                    ></span>
+                </div></a>
             </div>
-            <!-- remove favorites -->
-            <!-- <div class="icons">
-              <svg
-                class="icon-32-px-favorites"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
-                  stroke="#FF0000"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div> -->
+          
             <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
               <svg
                 class="cart-1"
@@ -535,9 +322,9 @@
       <script src="../js/api_client.js"></script>
       <script src="../js/util.js"></script>
       <script src="../js/product.js"></script>
+  
       <script>
         getAllProducts()
-        
         $(document).ready(function() {
         $('#default').click(function() {
           var buttonText = $('.buttonz').text()
@@ -568,7 +355,16 @@
           getAllProducts('Oldest')
         })
       })
-        
+
+        document.addEventListener('DOMContentLoaded', function() {
+          const cartIdContainer = document.getElementById('cartIdContainer');
+          const cartId = sessionStorage.getItem('cartId');
+
+          if (cartId) {
+            cartIdContainer.setAttribute('value',cartId);
+          }
+        });
       </script>
+     
 </body>
 </html>

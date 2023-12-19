@@ -14,18 +14,17 @@ const viewProductViaProductName = (req, res, next) => {
       })
     } else {    
       let query = `
-      SELECT tbl_brand.name AS brand_name , tbl_category.type, p.id, p.name, p.description, p.created_at, 
-    p.main_img, p.back_img, p.top_img , min_price.min_price
-    FROM tbl_product AS p
+      SELECT tbl_brand.name AS brand_name , tbl_category.type, tbl_product.id, tbl_product.name, tbl_product.description, tbl_product.created_at, 
+    tbl_product.main_img, tbl_product.back_img, tbl_product.top_img , min_price.min_price
+    FROM tbl_product 
     JOIN (
         SELECT product_id, MIN(price) AS min_price
         FROM tbl_productstock
         GROUP BY product_id
-    ) AS min_price ON p.id = min_price.product_id
-    JOIN tbl_brand ON p.brand_id = tbl_brand.id 
-    JOIN tbl_category ON p.category_id = tbl_category.id  
-      WHERE p.name LIKE ?`
-      
+    ) AS min_price ON tbl_product.id = min_price.product_id
+    JOIN tbl_brand ON tbl_product.brand_id = tbl_brand.id 
+    JOIN tbl_category ON tbl_product.category_id = tbl_category.id
+      WHERE tbl_product.name LIKE ?`
       let searchValue = `%${prodName}%`
   
       database.db.query(query, [searchValue], (err, rows, result) => {
@@ -39,6 +38,7 @@ const viewProductViaProductName = (req, res, next) => {
             res.status(200).json({
               successful: true,
               message: `Successfully found products with name: ${prodName}`,
+              count: rows.length,
               data: rows
             })
           } else {
@@ -81,6 +81,7 @@ const viewAllProducts = (req,res,next)=>{
             res.status(200).json({
                 successful:true,
                 message: "Successfully Got All Products ",
+                count: rows.length,
                 data:rows
             })
         }

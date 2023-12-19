@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your Cart</title>
     <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
@@ -19,48 +19,17 @@
       }
     });
   </script>
+  <script src="../js/util.js"></script>
+  <script src="../js/checkout.js"></script>
+  <script src="../js/api_client.js"></script>
+
     <div class="cart">
         <div class="hero">
           <div class="content">
             <div class="left-side">
               <div class="shopping-cart">Shopping Cart</div>
-              <div class="products">
-                <div class="cart-product">
-                  <div class="content2">
-                    <div class="info">
-                      <div class="adidas-yeezy-700-classic">
-                        Adidas YEEZY<br />700 “Classic”
-                      </div>
-                      
-                    </div>
-                    <div class="right-side">
-                     
-                      <div class="_11000">₱11000</div>
-                      <svg
-                        class="icon-24-px-close"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M18 6L6 18"
-                          stroke="black"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M6 6L18 18"
-                          stroke="black"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <img class="yeezy-3" src="/frontend/img/yeezy 2.png" />
-                </div>
+              <div class="products" id="shopping-cart-items">
+                
                 <svg
                   class="devider"
                   width="536"
@@ -76,112 +45,26 @@
                   />
                 </svg>
       
-                <div class="cart-product">
-                  <div class="content3">
-                    <div class="info">
-                      <div class="jordan-4-2018-white-cement">
-                        Jordan 4 2018<br />White Cement
-                      </div>
-                      
-                    </div>
-                    <div class="right-side">
-                      
-                      <div class="_9000">₱9000</div>
-                      <svg
-                        class="icon-24-px-close2"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M18 6L6 18"
-                          stroke="black"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M6 6L18 18"
-                          stroke="black"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <img class="j-4-3" src="/frontend/img/j4 1.png" />
-                </div>
+           
                 <div class="devider2"></div>
-                <div class="cart-product">
-                  <div class="content2">
-                    <div class="info">
-                      <div class="new-balance-2002-r-pocket-gray-m-2002-rvc">
-                        New Balance 2002R Pocket Gray M2002RVC
-                      </div>
-                    </div>
-                    <div class="right-side">
-                      <div class="_12000">₱12000</div>
-                      <svg
-                        class="icon-24-px-close3"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M18 6L6 18"
-                          stroke="black"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M6 6L18 18"
-                          stroke="black"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <img class="_2002-r-4" src="/frontend/img/2002r 2.png" />
-                </div>
+                 
               </div>
             </div>
             <div class="summary">
               <div class="order-summary">Order Summary</div>
               <div class="content4">
                 <div class="block">
-                  <!-- <div class="fields">
-                    <div class="label-field">
-                      <div class="your-bonus-card-number">
-                        Discount code / Promo code
-                      </div>
-                      <div class="field">
-                        <div class="enter-card-number">Code</div>
-                      </div>
-                    </div>
-                    <div class="label-field">
-                      <div class="your-bonus-card-number">Your GCash Number</div>
-                      <div class="field2">
-                        <div class="enter-card-number">Enter GCash Number</div>
-                        <div class="button">
-                          <div class="apply">Apply</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
+                 
                   <div class="prices">
                     <div class="subtotal">
                       <div class="subtotal2">Subtotal</div>
-                      <div class="_32-000">₱32,000</div>
+                      <div class="_32-000" id="cart-subtotal"></div>
                     </div>
                     <div class="taxes">
                       <div class="price">
                         <div class="text">
                           <div class="estimated-tax">Estimated Tax</div>
-                          <div class="_150">₱150</div>
+                          <div class="_150">₱150.00</div>
                         </div>
                       </div>
                       <div class="price">
@@ -189,23 +72,27 @@
                           <div class="estimated-shipping-handling">
                             Estimated shipping &amp; Handling
                           </div>
-                          <div class="_120">₱120</div>
+                          <div class="_120">₱120.00</div>
                         </div>
                       </div>
                     </div>
                     <div class="total">
                       <div class="total2">Total</div>
-                      <div class="_32-270">₱32,270</div>
+                      <div class="_32-270" id="cart-total"></div>
                     </div>
                   </div>
                 </div>
-                <a href="/frontend/html/proc.html"><div class="button2">
+              
+                  <a href="/frontend/html/proc.html">
+                  <div class="button2" id ="checkoutButton">
                   <div class="label">Checkout</div>
                 </div></a>
+        
+                
               </div>
             </div>
           </div>
-          <div class="back">Back</div>
+          <a href="javascript:history.back()"><div class="back">Back</div></a>
           <svg
             class="arrow-elbow-down-left"
             width="22"
@@ -223,36 +110,22 @@
           <div class="header">
             <div class="header-top">
               <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
-               <input type="text" name="text" placeholder="Search BSG'" class="input">
+              <script src="../js/api_client.js"></script>
+              <script src="../js/util.js"></script>
+              <script src="../js/product.js"></script>
+              <input type="text" name="searchProduct" placeholder="Search BSG" class="input" onkeydown="searchProduct(this)">
                <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
               <div class="navigation">
                 <a href="/frontend/html/home.html"><div class="home">Home</div></a>
                <a href="/frontend/html/about.html"><div class="about">About</div></a>
-                <div class="contact-us">
-                  <span
-                    ><span class="contact-us-span">Contact Us</span
-                    ></span
-                  >
-                </div>
+               <a href="/frontend/html/socials.html"><div class="contact-us">
+                <span
+                    ><span class="contact-us-span">Contact Us</span 
+                    ></span>
+                </div></a>
               </div>
               <div class="icons">
-                <!-- favorites -->
-                <!-- <svg
-                  class="icon-32-px-favorites"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
-                    stroke="#FF0000"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg> -->
+                
               </div>
               <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
                 <svg

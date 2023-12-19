@@ -4,22 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home - BSG</title>
   <link rel="stylesheet" href="../css/home.css">
-  
 </head>
 
 <body>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cartIdContainer = document.getElementById('cartIdContainer');
-      const cartId = sessionStorage.getItem('cartId');
-
-      if (cartId) {
-        cartIdContainer.setAttribute('value',cartId);
-      }
-    });
-  </script>
+  
 </div>
   <div class="home">
     <div class="category">
@@ -165,9 +155,7 @@
               craftsmanship.
             </div>
           </div>
-        <!-- <a href="/frontend/html/ProdInf.html">  <div class="button">
-            <div class="label">View</div>
-          </div></a> -->
+     
         </div>
       </div>
     </div>
@@ -208,21 +196,21 @@
     <div class="header">
       <div class="header-top">
         <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
-        <input type="text" name="text" placeholder="Search BSG'" class="input">
+        <input type="text" name="text" placeholder="Search BSG'" class="input" onkeydown="searchProduct(this)">
         <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
        
         <div class="navigation">
           
           <a href="/frontend/html/home.html"><div class="home2">Home</div></a>
           <a href="/frontend/html/about.html"><div class="about">About</div></a>
-          <div class="contact-us">
-            <!--kevs--><span
+          <a href="/frontend/html/socials.html"><div class="contact-us">
+          <span
               ><span class="contact-us-span">Contact Us</span 
-              ></span><!--kevs-->
-          </div>
+              ></span>
+          </div></a>
         </div>
         <a href="/frontend/html/cart.html"><div class="icon-32-px-cart">
-        <script src="/frontend/js/util.js"></script>
+      
         <div id="cartIdContainer" name = "cartId" value =""></div>
           <svg
             class="cart-1"
@@ -254,10 +242,7 @@
         <div class="nav-category">
           <a href="/frontend/html/essentialsPage.html"><div class="essentials">Essentials</div></a>
         </div>
-        <!-- <div class="devider"></div>
-        <div class="nav-category">
-          <div class="kits">Kits</div>
-        </div> -->
+      
         <div class="devider"></div>
         <div class="nav-category">
          <a href="#new-arrivals"> <div class="newarrivals">New Arrivals</div></a>
@@ -288,19 +273,14 @@
           
         </div>
         
-        <!-- <div class="featured-products">Featured Products</div> -->
+     
 
       </div>
       <div class="products-grid">
 
         <div class="products" id="product-list">
      
-          <script src="../js/api_client.js"></script>
-          <script src="../js/util.js"></script>
-          <script src="../js/newarrivals.js"></script>
-          <script>
-              getAllProducts()
-          </script>
+         
     
           
         </div>
@@ -312,72 +292,7 @@
     
    
 
-    <!-- <div class="banners">
-      <div class="pair3">
-        <div class="big-banner2">
-          <div class="title-text5">
-            <div class="popular-products">Popular Products</div>
-            <div
-              class="step-into-confidence-wrapped-in-trends-aparrells-where-every-stitch-tells-your-story"
-            >
-              Step into confidence, wrapped in trends. Aparrells – where every
-              stitch tells your story.<br />
-            </div>
-            <a href="/frontend/html/ProdPage.html"><div class="button6">
-              <div class="label4">Shop Now</div>
-            </div></a>
-          </div>
-          <img class="untitled-design-1-1" src="/frontend/img/Untitled design (1) 1.png" />
-        </div>
-        <div class="big-banner3">
-          <div class="title-text5">
-            <div class="shoe-kits">Shoe Kits</div>
-            <div
-              class="revive-your-kicks-step-into-freshness-shoe-kit-cleaners-unleash-the-sole-glow-one-shine-at-a-time"
-            >
-              Revive your kicks, step into freshness. Shoe kit cleaners: Unleash
-              the sole glow, one shine at a time.
-            </div>
-            <div class="button6">
-              <div class="label4">Shop Now</div>
-            </div>
-          </div>
-          <img class="untitled-design-2-1" src="/frontend/img/Untitled design (2) 1.png" />
-        </div>
-      </div>
-      <div class="pair3">
-        <div class="big-banner4">
-          <div class="title-text5">
-            <div class="statement-tees">Statement Tees</div>
-            <div
-              class="wear-your-words-statement-tees-that-speak-volumes-style-that-resonates"
-            >
-              Wear your words. Statement tees that speak volumes, style that
-              resonates.<br />
-            </div>
-            <div class="button6">
-              <div class="label4">Shop Now</div>
-            </div>
-          </div>
-          <img class="untitled-design-3-1" src="/frontend/img/Untitled design (3) 1.png" />
-        </div>
-        <div class="big-banner5">
-          <div class="title-text5">
-            <div class="gift-ideas">Gift Ideas</div>
-            <div
-              class="discover-the-joy-of-giving-with-unique-and-thoughtful-gift-ideas-make-every-moment-unforgettable"
-            >
-              Discover the joy of giving with unique and thoughtful gift ideas.
-              Make every moment unforgettable
-            </div>
-            <div class="button7">
-              <div class="label2">Shop Now</div>
-            </div>
-          </div>
-          <img class="untitled-design-4-1" src="/frontend/img/Untitled design (4) 1.png" />
-        </div>
-      </div>
-    </div> -->
+    
     <div class="footer">
       <div class="info3">
         <div class="logo-text">
@@ -531,16 +446,23 @@
       class="add-a-heading-2-1"
       src="/frontend/img/Add a heading (2) 1.png"/>
   </div>
-  <!-- scirpt for possible loader
+ 
+  <script src="../js/api_client.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/newarrivals.js"></script>
+  <script src="../js/product.js"></script>
   <script>
-    home.addEventListener("DOMContentLoaded", function() {
-      // Code to remove the loader
-      var loader = home.querySelector('.loader-container');
-      loader.remove();
+    getNewArrivals()
+    sessionStorage.removeItem("searchedProduct")
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartIdContainer = document.getElementById('cartIdContainer');
+      const cartId = sessionStorage.getItem('cartId');
+
+      if (cartId) {
+        cartIdContainer.setAttribute('value',cartId);
+      }
     });
-  </script> -->
-  
-  
+  </script>
 
 </body>
 

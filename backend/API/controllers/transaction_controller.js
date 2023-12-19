@@ -3,9 +3,9 @@ const database = require('../models/connection_db')
 const transactionModel = require('../models/transaction_model')
 
 function generateReferenceNumber() {
-  const characters = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?"
+  const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   let referenceNumber = ""
-  const length = 20
+  const length = 15
 
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length)
