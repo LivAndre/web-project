@@ -68,6 +68,7 @@ async function insertTransaction(){
 
     api_client(API_URL, options, function (response){
         console.log('Response', response)
+        sessionStorage.setItem("refNum",response.reference_number)
         alert(response.message)
     })
 }
@@ -81,4 +82,48 @@ async function handlePayment() {
         console.error('Error:', error)
         // Handle errors if needed
     }
+}
+
+const initializeOrderId = ()=>{
+    let referenceNum = (sessionStorage.getItem("refNum") === null ? "" : sessionStorage.getItem("refNum"))
+    let msg = ""
+    if (referenceNum == ""){
+        msg = `Reference number not found.<br />`
+    }
+    else{
+        msg = `ORDER #${referenceNum} ONGOING PROCESSING.<br />`
+        
+    }
+    document.getElementById("order-id-message").innerHTML = msg
+}
+
+const searchOrderNum = (el)=>{
+
+    if (event.key == "Enter"){
+        let reference_number = el.value
+
+        let url = `http://localhost:8000/transactions/view/transaction/reference/${reference_number}`;
+    
+    
+        let content = {
+            method: 'GET',
+            headers: {
+                'Content-Type':'application/json'
+            }
+        }
+    
+        api_client(url, content, (response) => {
+            if (response.successful == false){
+                alert(response.message)
+            }
+            else{
+                console.log(`get reference details: ${JSON.stringify(response)}`)
+                alert(response.message)
+            }
+        })
+    }
+
+    
+
+    
 }

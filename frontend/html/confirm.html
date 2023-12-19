@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="/frontend/css/confirm.css">
 </head>
 <body>
+  
   <div id="cartIdContainer" name = "cartId" value =""></div>
 
   <script>
+    
     document.addEventListener('DOMContentLoaded', function() {
       const cartIdContainer = document.getElementById('cartIdContainer');
       const cartId = sessionStorage.getItem('cartId');
@@ -42,7 +44,7 @@
           </div>
           <div class="text">
             <span
-              ><span class="text-span">ORDER #29487305 ONGOING PROCESSING.<br /></span
+              ><span class="text-span" id="order-id-message">ORDER #29487305 ONGOING PROCESSING.<br /></span
               ><span class="text-span2">Kindly check your Email.<br /></span
               ><span class="text-span3"><br /></span
               ><span class="text-span4">Regards,<br /><br /></span
@@ -210,6 +212,11 @@
         <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
         <div class="j-1-1"></div>
       </div>
+
+      <script src="../js/confirm_order.js"></script>
+      <script>
+          initializeOrderId()
+      </script>
       
 </body>
 </html>

@@ -197,7 +197,7 @@
       <div class="header-top">
         <a href="/frontend/html/home.html"> <img class="add-a-heading-1-1" src="/frontend/img/Add a heading (1) 1.png" /></a>
         <input type="text" name="text" placeholder="Search BSG'" class="input" onkeydown="searchProduct(this)">
-        <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2">
+        <input type="text" name="text" placeholder="Your Order ID (#)'" class="input2" onkeydown="searchOrderNum(this)">
        
         <div class="navigation">
           
@@ -468,6 +468,7 @@
   <script src="../js/util.js"></script>
   <script src="../js/newarrivals.js"></script>
   <script src="../js/product.js"></script>
+  <script src="../js/confirm_order.js"></script>
   <script>
     getNewArrivals()
     sessionStorage.removeItem("searchedProduct")

@@ -260,7 +260,8 @@ const addTransaction = (req, res, next) => {
 
                 res.status(200).json({
                   successful: true,
-                  message: "Transaction added successfully."
+                  message: "Transaction added successfully.",
+                  reference_number: referenceNumber
                 })
               })
             })
